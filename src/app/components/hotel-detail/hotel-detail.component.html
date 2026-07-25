@@ -1,0 +1,52 @@
+<div class="figma-hotel-page" *ngIf="hotel">
+  <section class="figma-hero" id="hotel">
+    <div class="hero-center">
+      <h1 style="color: white">Hotel Accommodation</h1>
+    </div>
+  </section>
+  <div class="hotel-floating-card">
+    <h2>{{ hotel.name }}</h2>
+    <div class="stars">
+      @for (star of [1, 2, 3, 4, 5]; track star) {
+        <i
+          class="bi"
+          [class.bi-star-fill]="star <= hotel.rating"
+          [class.bi-star]="star > hotel.rating"
+        ></i>
+      }
+      
+    </div>
+  </div>
+  <section class="figma-description container">
+    <div class="desc-card">
+      <div class="desc-image">
+        <div class="image-fade"></div>
+        <img [src]="hotel.images[0]" />
+      </div>
+
+      <div class="desc-text">
+        <h3>Hotel description</h3>
+        <p>{{ hotel.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="figma-gallery container">
+    <h3>Photo Gallery</h3>
+    <p>Explore the hotel and discover comfort at every stay</p>
+
+    <div class="flex-gallery">
+      <div
+        *ngFor="let image of hotel.images; let i = index"
+        class="flex-item"
+        (click)="selectImage(image)"
+      >
+        <img
+          [src]="image"
+          [alt]="'Hotel image ' + (i + 1)"
+          class="flex-image"
+        />
+      </div>
+    </div>
+  </section>
+</div>

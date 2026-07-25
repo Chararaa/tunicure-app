@@ -1,0 +1,181 @@
+<div *ngIf="loading" class="text-center py-5">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div *ngIf="error && !loading" class="alert alert-danger container mt-5">
+  {{ error }}
+</div>
+
+<div *ngIf="!loading && !error && category">
+  <!-- Banner Section -->
+  <section class="category-banner" id="s-categories">
+    <div class="container-fluid p-0">
+      <div
+        class="banner-image"
+        [style.backgroundImage]="'url(' + category.banner + ')'"
+      >
+        <div class="banner-overlay">
+          <div class="container">
+            <h1>{{ category.name }}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="clinic-floating-card">
+    <div class="hero-center">
+      <div class="services-btn">
+        <span class="icon"></span>
+        <p class="custom-title">Our clinic</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Subcategories Section -->
+  <section class="subcategories-section">
+    <div class="container">
+      <div class="section-header text-center mb-5">
+        <h2>Select the surgical procedure that <br />meets your needs</h2>
+      </div>
+
+      <div class="row justify-content-center">
+        <div
+          class="col-6 col-md-3 col-lg-2 text-center mb-4"
+          *ngFor="let sub of subCategories"
+        >
+          <a
+            [routerLink]="['/subcategory', sub._id]"
+            class="subcategory-circle"
+          >
+            <div
+              class="circle-image"
+              [style.backgroundImage]="
+                'url(' +
+                (sub.image || 'assets/images/default-category.jpg') +
+                ')'
+              "
+            ></div>
+            <h5>{{ sub.name }}</h5>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Description Section avec cartes -->
+  <section class="description-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3 class="section-subtitle text-center mb-5">
+            Detailed description
+          </h3>
+
+          <div
+            class="description-cards-container"
+            *ngIf="descriptionSections.length > 0"
+          >
+            <div
+              class="description-card"
+              *ngFor="let section of descriptionSections; let i = index"
+              [ngClass]="{ 'alternate-card': i % 2 === 1 }"
+            >
+              <div class="card-header">
+                <h4 class="card-title">{{ section.title }}</h4>
+              </div>
+
+              <div class="card-body">
+                <!-- Paragraphes -->
+                <div
+                  *ngFor="let paragraph of section.paragraphs"
+                  class="section-paragraph"
+                >
+                  {{ paragraph }}
+                </div>
+
+                <!-- Listes avec ✅ déjà présent dans l'image -->
+                <div *ngFor="let list of section.lists" class="list-wrapper">
+                  <ul class="card-list">
+                    <li *ngFor="let item of list">
+                      <!-- Garder le ✅ qui est déjà dans le texte -->
+                      {{ item }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- section vidéo simplifiée -->
+  <section *ngIf="hasVideo()" class="video-section py-5">
+    <div class="container">
+      <div class="section-header text-center mb-5">
+        <h2>Video presentation</h2>
+        <p class="text-muted">Discover {{ category.name }} in video</p>
+      </div>
+
+      <div class="video-container">
+        <!-- YouTube -->
+        <div *ngIf="isYouTubeVideo && videoEmbedUrl" class="video-wrapper">
+          <div class="ratio ratio-16x9">
+            <iframe
+              [src]="videoEmbedUrl"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+              "
+              allowfullscreen
+              title="Vidéo YouTube"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Vimeo -->
+        <div *ngIf="isVimeoVideo && videoEmbedUrl" class="video-wrapper">
+          <div class="ratio ratio-16x9">
+            <iframe
+              [src]="videoEmbedUrl"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+              title="Vidéo Vimeo"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Instagram -->
+        <div *ngIf="isInstagramVideo" class="video-wrapper">
+          <div class="text-center mb-3" *ngIf="!instagramScriptLoaded">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading Instagram...</span>
+            </div>
+            <p class="mt-2">Loading de la vidéo Instagram...</p>
+          </div>
+          <div #instagramContainer class="instagram-embed"></div>
+        </div>
+
+        <!-- Facebook -->
+        <div *ngIf="isFacebookVideo" class="video-wrapper">
+          <div class="text-center mb-3" *ngIf="!facebookScriptLoaded">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading Facebook...</span>
+            </div>
+            <p class="mt-2">Loading de la vidéo Facebook...</p>
+          </div>
+          <div #facebookContainer class="facebook-embed"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,93 @@
+<section id="doctors" class="cat-bg">
+  <div class="container">
+    <!-- Section Title -->
+    <div class="container" data-aos="fade-up">
+      <div class="hero-center">
+        <div class="services-btn">
+          <span class="icon"></span>
+          <p class="custom-title">Our expert team</p>
+        </div>
+        <p class="custom-heading">Meet our expert team</p>
+      </div>
+    </div>
+    <div
+      *ngIf="isAfricanVisitor"
+      class="africa-restriction-banner"
+      style="
+        text-align: center;
+        padding: 50px 20px;
+        background: #F1F8FC;
+        border-radius: 10px;
+        margin: 30px 0;
+      "
+    >
+      <i
+        class="fas fa-globe-africa"
+        style="font-size: 48px; color: #007bff; margin-bottom: 20px"
+      ></i>
+      <h3 style="margin-bottom: 15px">Content not available in your region</h3>
+      <p style="color: #666; max-width: 600px; margin: 0 auto">
+        Due to regional restrictions, doctor information is currently not
+        displayed for visitors from African countries. We apologize for the
+        inconvenience.
+      </p>
+    </div>
+    <!-- Loading -->
+    <div *ngIf="loading" class="loading-doctors">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- SWIPER -->
+    <div
+      *ngIf="!isAfricanVisitor && !loading && displayedDoctors.length > 0"
+      class="swiper doctors-swiper"
+      #swiperContainer
+    >
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let doctor of displayedDoctors">
+          <div class="doctor-card">
+            <div class="doctor-image">
+              <img
+  [src]="getDoctorImage(doctor)"
+  [alt]="doctor.personalInfo.name"
+/>
+            </div>
+            <div class="doctor-content">
+              <h3>{{ doctor.personalInfo.name }}</h3>
+              <p>{{ doctor.personalInfo.title }}</p>
+              <a
+                [routerLink]="['/doctors', doctor._id]"
+                class="btn-doctor"
+                (click)="scrollToSection('doctor-section')"
+              >
+                See profile
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+	 <!-- Flèches de navigation du carrousel principal -->
+      <div class="swiper-button-next">
+        <img
+          src="assets/img/home/flechdroite.png"
+          alt="Next"
+          class="custom-arrow"
+        />
+      </div>
+      <div class="swiper-button-prev">
+        <img
+          src="assets/img/home/flechgauche.png"
+          alt="Prev"
+          class="custom-arrow"
+        />
+      </div>
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Message si pas de docteurs -->
+    <div *ngIf="!isAfricanVisitor && !loading && displayedDoctors.length === 0" class="no-doctors">
+      <p>No doctors available at the moment.</p>
+    </div>
+  </div>
+</section>

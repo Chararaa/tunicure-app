@@ -1,0 +1,39 @@
+<section id="doctors" class="doctors-section">
+  <!-- Section Header -->
+  <div class="container section-header">
+    <h2>All Our Medical Specialists</h2>
+    <p>Browse through our complete team of medical professionals</p>
+    <div class="section-divider">
+      <div class="divider-line"></div>
+      <i class="fas fa-user-md"></i>
+      <div class="divider-line"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading-doctors">
+      <div class="spinner-container">
+        <div class="spinner"></div>
+        <p>Loading our medical team...</p>
+      </div>
+    </div>
+
+    <!-- Doctors Grid -->
+    <div *ngIf="!loading" class="doctors-grid">
+      <div *ngFor="let doctor of doctors; let i = index" class="doctor-card">
+        <!-- Same content as doctor.component.html template -->
+        <!-- Copy-paste the doctor card content here -->
+      </div>
+    </div>
+
+    <!-- No Doctors Message -->
+    <div *ngIf="!loading && doctors.length === 0" class="no-doctors-message">
+      <div class="empty-state">
+        <i class="fas fa-user-md"></i>
+        <h3>No Doctors Available</h3>
+        <p>Our medical team will be available soon. Please check back later.</p>
+      </div>
+    </div>
+  </div>
+</section>

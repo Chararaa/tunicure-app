@@ -1,0 +1,51 @@
+<section class="testimonials-section bg">
+  <div class="container">
+    <div class="container" data-aos="fade-up">
+      <div class="hero-center">
+        <div class="services-btn">
+          <span class="icon"></span>
+          <p class="custom-title">Happy Patients</p>
+        </div>
+        <p class="custom-heading">
+          Stories of Healing and Trust From Our Valued Patients
+        </p>
+      </div>
+    </div>
+
+    <div class="swiper" #swiperContainer>
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let t of testimonials">
+          <div class="avatar">
+            <div class="avatar-initial">
+              {{ getInitial(t.name) }}
+            </div>
+          </div>
+          <div class="testimonial-card inverted-radius">
+            <img
+              src="assets/img/testimonials/quote.png"
+              alt="Quote"
+              class="quote-icon"
+            />
+            <h4>{{ t.name }}</h4>
+            <p class="message">{{ t.message }}</p>
+
+            <!-- Bouton Voir plus / Voir moins -->
+            <button
+              *ngIf="hasMoreThanSixSentences(t.fullMessage)"
+              (click)="toggleMessage(t)"
+              class="read-more-btn"
+            >
+              {{ t.showFullMessage ? "Voir moins" : "Voir plus" }}
+            </button>
+
+            <div class="stars">
+              <span *ngFor="let s of getStars(t.rating)">★</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>

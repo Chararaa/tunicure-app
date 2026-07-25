@@ -1,0 +1,127 @@
+<section id="clinics" class="cat-bg">
+  <div class="container">
+    <!-- Section Title -->
+    <div class="container" data-aos="fade-up">
+      <div class="hero-center">
+        <div class="services-btn">
+          <span class="icon"></span>
+          <p class="custom-title">Our clinic</p>
+        </div>
+
+        <p class="custom-heading">
+          Explore our clinics and experience advanced medical care
+        </p>
+      </div>
+    </div>
+    <!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="clinics-container">
+        <div class="row g-4">
+          <div class="col-xl-6 col-lg-12" *ngFor="let clinic of clinics">
+            <div class="clinic-card">
+              <!-- Clinic Image -->
+              <div class="clinic-image-wrapper">
+                <img
+                  [src]="clinic.mainImage"
+                  [alt]="clinic.name"
+                  class="clinic-main-img"
+                />
+                <!--
+                  <div class="clinic-badge">
+                  <i class="bi bi-star-fill"></i>
+                  <span>{{ clinic.rating }}/5</span>
+                </div>
+                  -->
+              </div>
+
+              <!-- Clinic Info -->
+              <div class="clinic-info">
+                <div class="clinic-header">
+                  <h3>{{ clinic.name }}</h3>
+                  <div class="clinic-location">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <span>{{ clinic.location }}</span>
+                  </div>
+                </div>
+
+                <!-- Highlights -->
+                <div class="clinic-highlights">
+                  <div
+                    class="highlight-item"
+                    *ngFor="let h of clinic.highlights"
+                  >
+                    <div class="highlight-icon">
+                      <img [src]="h.icon" alt="icon" />
+                    </div>
+                    <span>{{ h.text }}</span>
+                  </div>
+                </div>
+
+                <!-- Specialties 
+                 <div class="specialties">
+                  <h4>Specialties</h4>
+                  <div class="specialties-list">
+                    <span
+                      class="specialty-badge"
+                      *ngFor="let specialty of clinic.specialties.slice(0, 4)"
+                    >
+                      {{ specialty }}
+                    </span>
+                    <span
+                      class="specialty-more"
+                      *ngIf="clinic.specialties.length > 4"
+                    >
+                      +{{ clinic.specialties.length - 4 }}
+                    </span>
+                  </div>
+                </div> 
+                -->
+
+                <!-- Action Button -->
+                <button
+                  class="btn-clinic-details"
+                  (click)="viewClinicDetails(clinic.id)"
+                >
+                  <span>Discover the clinic</span>
+                  <img
+                    src="assets/img/clinics/pepicons-pop_arrow-up.png"
+                    class="btn-arrow"
+                    alt="arrow"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="clinics-cta" data-aos="fade-up" data-aos-delay="200">
+        <!-- Section Title -->
+        <div class="hero-center mb-4">
+          <div class="services-btn">
+            <span class="icon"></span>
+            <p class="custom-title">Welcome new patient’s</p>
+          </div>
+        </div>
+        <!-- End Section Title -->
+        <div class="cta-content">
+          <h3>We’re Welcoming New Patients</h3>
+          <p>
+            Receive expert care in a safe, modern and comfortable environment.
+            Our dedicated medical team is here to support you every step of your
+            journey.
+          </p>
+          <a
+            (click)="navigateToOrder()"
+            class="btn-clinic-details btn-cta-center"
+            style="cursor: pointer"
+          >
+            <span>Book a Free Quote</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,622 @@
+<section class="figma-hero mb-2">
+  <div class="hero-center">
+    <h1 style="color: white">Medical Clinic</h1>
+  </div>
+</section>
+
+<div class="hotel-floating-card">
+  <h2>Book a Free Quote</h2>
+</div>
+
+<div class="mb-2">
+  <p class="custom-font mb-0">
+    A structured approach to booking your consultation
+  </p>
+  <p class="custom-font mb-0">Follow this process to schedule an appointment</p>
+</div>
+<div class="order-form-container" id="order">
+  <!-- Progress Bar (5 étapes) -->
+  <div class="progress-bar">
+    <div class="progress-numbers">
+      <div class="progress-step" [class.active]="currentStep >= 1">
+        <span class="step-number">1</span>
+      </div>
+      <div class="progress-step" [class.active]="currentStep >= 2">
+        <span class="step-number">2</span>
+      </div>
+      <div class="progress-step" [class.active]="currentStep >= 3">
+        <span class="step-number">3</span>
+      </div>
+      <div class="progress-step" [class.active]="currentStep >= 4">
+        <span class="step-number">4</span>
+      </div>
+      <div class="progress-step" [class.active]="currentStep >= 5">
+        <span class="step-number">5</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 1: Personal Information -->
+  <div *ngIf="currentStep === 1" class="step-container">
+    <div class="form-section">
+      <h2 class="mb-2">Patient Information</h2>
+
+      <div class="form-group">
+        <label for="gender">Gender *</label>
+        <select id="gender" [(ngModel)]="order.clientInfo.gender" required>
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+          <option value="prefer-not-to-say">Prefer not to say</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Full Name *</label>
+        <input
+          type="text"
+          id="name"
+          [(ngModel)]="order.clientInfo.name"
+          name="name"
+          required
+        />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="order.clientInfo.email"
+            name="email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input
+            type="tel"
+            id="phone"
+            [(ngModel)]="order.clientInfo.phone"
+            name="phone"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country *</label>
+
+        <select id="country" [(ngModel)]="order.clientInfo.country" required>
+          <option value="">Select your country</option>
+
+          <option *ngFor="let country of countries" [value]="country.code">
+            {{ country.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-actions">
+        <button
+          type="button"
+          class="btn-next btn-next-1"
+          (click)="nextStep()"
+          [disabled]="!isStep1Valid()"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: Main Category Selection -->
+  <div *ngIf="currentStep === 2" class="step-container">
+    <div class="form-section">
+      <h2>Choose your main category</h2>
+      <p class="subtitle">Select the general field of your procedure</p>
+
+      <div class="categories-grid">
+        <div
+          *ngFor="let generalCategory of generalCategories"
+          class="category-card"
+          [class.selected]="
+            selectedGeneralCategory?._id === generalCategory._id
+          "
+          (click)="selectGeneralCategory(generalCategory)"
+        >
+          <!-- Image covering the whole card -->
+          <div class="category-image-wrapper">
+            <img
+              [src]="generalCategory.icon || 'assets/default-category.jpg'"
+              [alt]="generalCategory.name"
+              class="category-main-image"
+            />
+          </div>
+
+          <!-- Overlay content in the center -->
+          <div class="category-content-overlay">
+            <div class="category-info-center">
+              <h3>{{ generalCategory.name }}</h3>
+              <span class="subcategory-count">
+                {{ generalCategory.subCategoriesCount || 0 }} procedures
+              </span>
+              <button class="btn-category-select">
+                <span>Select</span>
+                <img
+                  src="assets/img/clinics/pepicons-pop_arrow-up.png"
+                  class="btn-arrow"
+                />
+              </button>
+            </div>
+          </div>
+
+          <!-- Selected badge (optionnel, car le bouton devient visible) -->
+          <span
+            *ngIf="selectedGeneralCategory?._id === generalCategory._id"
+            class="selected-badge"
+          >
+            ✓ Selected
+          </span>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn-secondary btn-next" (click)="goBack()">
+          Back
+        </button>
+        <button
+          type="button"
+          class="btn-next"
+          (click)="nextStep()"
+          [disabled]="!selectedGeneralCategory"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3: Subcategory Selection -->
+  <div *ngIf="currentStep === 3" class="step-container">
+    <div class="form-section">
+      <h2>Choose your procedure</h2>
+      <p class="subtitle">
+        {{ selectedGeneralCategory?.name }} → Select a specific procedure
+      </p>
+
+      <div *ngIf="isLoadingCategories" class="loading">
+        Loading procedure...
+      </div>
+
+      <!-- Swiper for subcategories in circles -->
+      <div
+        *ngIf="!isLoadingCategories && subcategories.length > 0"
+        class="subcategories-swiper-container"
+      >
+        <div class="swiper subcategories-swiper" #subcategorySwiper>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" *ngFor="let category of subcategories">
+              <div
+                class="subcategory-circle-card"
+                [class.selected]="selectedCategory?._id === category._id"
+                (click)="selectCategory(category)"
+              >
+                <div
+                  class="circle-image"
+                  [style.backgroundImage]="
+                    'url(' +
+                    (category.image || 'assets/images/default-category.jpg') +
+                    ')'
+                  "
+                ></div>
+                <h5>{{ category.name }}</h5>
+
+                <!-- Selected badgené -->
+                <div
+                  *ngIf="selectedCategory?._id === category._id"
+                  class="selected-circle-badge"
+                >
+                  <span>✓</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Swiper -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <!-- Selected procedure details -->
+      <div *ngIf="selectedCategory" class="procedure-details-card">
+        <div class="procedure-details-header">
+          <h3>{{ selectedCategory.name }}</h3>
+          <p class="procedure-description">
+            {{ truncateDescription(selectedCategory.description, 2) }}
+          </p>
+        </div>
+
+        <div class="procedure-metrics">
+          <div class="metric-item">
+            <div class="metric-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="metric-content">
+              <span class="metric-label">The Operation Duration</span>
+              <span class="metric-value">{{
+                selectedCategory.averageDuration || "N/A"
+              }}</span>
+            </div>
+          </div>
+
+          <div class="metric-item">
+            <div class="metric-icon">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+            <div class="metric-content">
+              <span class="metric-label">Recovery</span>
+              <span class="metric-value">{{
+                selectedCategory.recoveryTime || "N/A"
+              }}</span>
+            </div>
+          </div>
+          <!--
+           <div class="metric-item">
+            <div class="metric-icon">
+              <i class="fas fa-tag"></i>
+            </div>
+            <div class="metric-content">
+              <span class="metric-label">Price</span>
+              <span class="metric-value price">
+                {{ formatPrice(selectedCategory) }}
+              </span>
+            </div>
+          </div>
+          -->
+        </div>
+      </div>
+
+      <!-- Message si pas de sous-catégories -->
+      <div
+        *ngIf="!isLoadingCategories && subcategories.length === 0"
+        class="no-subcategories"
+      >
+        <p>No procedure available for this category.</p>
+        <button class="btn-secondary" (click)="goBack()">
+          Choose another category
+        </button>
+      </div>
+
+      <!-- Boutons d'action -->
+      <div class="form-actions" *ngIf="subcategories.length > 0">
+        <button type="button" class="btn-secondary btn-next" (click)="goBack()">
+          Back
+        </button>
+        <button
+          type="button"
+          class="btn-next"
+          (click)="nextStep()"
+          [disabled]="!selectedCategory"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 4: Questions -->
+  <div *ngIf="currentStep === 4" class="step-container">
+    <div class="form-section">
+      <!-- General medical questions -->
+      <div class="form-section">
+        <h3>Medical Information</h3>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="smokes">Do you smoke ?</label>
+            <select id="smokes" [(ngModel)]="order.medicalInfo.smokes">
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="previousOperations">Previous surgeries ?</label>
+            <select
+              id="previousOperations"
+              [(ngModel)]="order.medicalInfo.previousOperations"
+            >
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="chronicMedication">Chronic medication ?</label>
+            <select
+              id="chronicMedication"
+              [(ngModel)]="order.medicalInfo.chronicMedication"
+            >
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="allergies">Allergies ?</label>
+            <select id="allergies" [(ngModel)]="order.medicalInfo.allergies">
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Add this section after the other existing form-row -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="age">Age *</label>
+            <input
+              type="number"
+              id="age"
+              [(ngModel)]="order.clientInfo.age"
+              name="age"
+              min="18"
+              max="100"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="height">Height (cm) *</label>
+            <input
+              type="number"
+              id="height"
+              [(ngModel)]="order.clientInfo.height"
+              name="height"
+              min="100"
+              max="250"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="weight">Weight (kg) *</label>
+            <input
+              type="number"
+              id="weight"
+              [(ngModel)]="order.clientInfo.weight"
+              name="weight"
+              min="30"
+              max="300"
+              step="0.1"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Conditional fields -->
+        <div
+          *ngIf="showMedicalDetails('previousOperations')"
+          class="form-group"
+        >
+          <label>Details of previous surgeries</label>
+          <textarea
+            [(ngModel)]="order.medicalInfo.previousOperationsDetails"
+            rows="3"
+            placeholder="Describe your previous surgeries..."
+          ></textarea>
+        </div>
+
+        <div *ngIf="showMedicalDetails('allergies')" class="form-group">
+          <label>Allergy details</label>
+          <textarea
+            [(ngModel)]="order.medicalInfo.allergiesDetails"
+            rows="3"
+            placeholder="Describe your allergies..."
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="expectations">Expectations and goals</label>
+          <textarea
+            id="expectations"
+            [(ngModel)]="order.medicalInfo.expectations"
+            rows="4"
+            placeholder="Describe your expectations for this procedure..."
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn-secondary btn-next" (click)="goBack()">
+          Back
+        </button>
+        <button type="button" class="btn-next" (click)="nextStep()">
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 5: Photo Upload -->
+  <div *ngIf="currentStep === 5" class="step-container">
+    <div class="form-section">
+      <h2>Add photos</h2>
+      <p class="subtitle">Photos help us better evaluate your case</p>
+
+      <div class="photo-upload-section">
+        <div class="upload-instructions">
+          <p>Please upload clear photos (maximum 5 images)</p>
+          <ul>
+            <li>Supported formats: JPG, PNG</li>
+            <li>Maximum size: 5MB per image</li>
+            <li>You can upload up to 5 images</li>
+          </ul>
+        </div>
+
+        <div class="file-upload-container">
+          <input
+            type="file"
+            id="photoUpload"
+            (change)="onFileSelected($event)"
+            multiple
+            accept="image/*"
+            class="file-input"
+          />
+          <label for="photoUpload" class="file-upload-label">
+            <span class="upload-icon">📷</span>
+            <span class="upload-text">Choose photos</span>
+          </label>
+        </div>
+        <div class="privacy-notice">
+          <p>
+            🔒 Your photos are
+            <span style="color: red">confidential</span>.
+            <a
+              href="javascript:void(0)"
+              (click)="openPhotoPrivacyModal()"
+              class="privacy-link"
+            >
+              Read our privacy policy
+            </a>
+          </p>
+        </div>
+
+        <!-- Photo Previews -->
+        <div *ngIf="previewUrls.length > 0" class="photo-previews">
+          <h4>Selected photos ({{ previewUrls.length }}/5)</h4>
+          <div class="preview-grid">
+            <div
+              *ngFor="let previewUrl of previewUrls; let i = index"
+              class="preview-item"
+            >
+              <img [src]="previewUrl" alt="Preview" class="preview-image" />
+              <button
+                type="button"
+                class="remove-image-btn"
+                (click)="removeImage(i)"
+                title="Remove image"
+              >
+                ×
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="form-section summary-section">
+        <h3>Summary of your request</h3>
+        <div class="summary-details">
+          <p><strong>Name:</strong> {{ order.clientInfo.name }}</p>
+          <p><strong>Email:</strong> {{ order.clientInfo.email }}</p>
+          <p><strong>Category:</strong> {{ selectedGeneralCategory?.name }}</p>
+          <p><strong>Procedure:</strong> {{ selectedCategory?.name }}</p>
+          <p><strong>Photos:</strong> {{ previewUrls.length }} Photos</p>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn-secondary btn-next" (click)="goBack()">
+          Back
+        </button>
+        <button
+          type="button"
+          class="btn-primary"
+          (click)="submitForm()"
+          [disabled]="isSubmitting || selectedFiles.length === 0"
+        >
+          {{ isSubmitting ? "Submitting..." : "Submit request" }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal pour la confidentialité des photos -->
+<div
+  class="modal-overlay"
+  *ngIf="showPhotoPrivacyModal"
+  (click)="closePhotoPrivacyModal()"
+>
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Photo privacy</h3>
+      <button class="modal-close" (click)="closePhotoPrivacyModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-icon">🔒</div>
+      <h4>Your photos are secure and private</h4>
+      <p>
+        We would like to inform you that
+        <strong>your photos will not be published or used</strong> outside of a
+        medical context.
+      </p>
+
+      <p>
+        They are strictly reserved for doctors to evaluate your case and provide
+        you with an appropriate medical consultation
+      </p>
+      <ul class="privacy-list">
+        <li>✅ Photos accessible only to consulting doctors</li>
+        <li>✅ No commercial or promotional use</li>
+        <li>✅ Medical confidentiality guaranteed</li>
+        <li>✅ Secure and encrypted storage</li>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-primary" (click)="acceptPhotoPrivacy()">
+        I understand and accept
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Modal succès -->
+<div
+  class="modal-overlay"
+  *ngIf="showSuccessModal"
+  (click)="closeSuccessModal()"
+>
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Request sent</h3>
+      <button class="modal-close" (click)="closeSuccessModal()">×</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-icon">✅</div>
+      <h4>Your request has been successfully sent</h4>
+      <p>
+        Our medical team will review your file and contact you as soon as
+        possible.
+      </p>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-primary" (click)="closeSuccessModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="showAlertModal" (click)="closeAlert()">
+  <div class="modal-container alert-modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>{{ alertTitle }}</h3>
+      <button class="modal-close" (click)="closeAlert()">×</button>
+    </div>
+
+    <div class="modal-body alert-body">
+      <div class="modal-icon">⚠️</div>
+      <p>{{ alertMessage }}</p>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-primary" (click)="closeAlert()">OK</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+<div class="whatsapp-container">
+  <!-- BOUTON FLOTTANT AVEC ANIMATION -->
+  <button class="whatsapp-toggle" (click)="togglePopup()" [class.open]="isOpen">
+    <span class="whatsapp-icon" *ngIf="!isOpen">
+      <i class="fab fa-whatsapp"></i>
+    </span>
+    <span class="close-icon" *ngIf="isOpen">✕</span>
+  </button>
+
+  <!-- POPUP WHATSAPP - style chatbot mais couleurs WhatsApp -->
+  <div class="whatsapp-popup" [class.open]="isOpen">
+    <!-- Header aux couleurs WhatsApp -->
+    <div class="wa-header">
+      <div class="brand">
+        <div class="avatar">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+        <div class="info">
+          <h3>WhatsApp</h3>
+          <p>Customer Support • Quick Response</p>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="btn-close" (click)="togglePopup()">✕</button>
+      </div>
+    </div>
+
+    <!-- Corps du popup -->
+    <div class="wa-body">
+      <div class="messages-scroll-container">
+        <!-- Message de bienvenue -->
+        <div class="welcome-banner">
+          <h4>👋 Need help ?</h4>
+          <p>Contact us directly on WhatsApp</p>
+          <div class="procedures-list">
+            <span class="procedure-tag">📞 Support 24/7</span>
+            <span class="procedure-tag">💬 Instant reply</span>
+            <span class="procedure-tag">📸 Send photos</span>
+          </div>
+        </div>
+
+        <!-- Message simulé -->
+        <div class="message bot">
+          <div class="message-avatar">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <div class="message-content">
+            <!-- Animation de frappe -->
+            <div class="typing-indicator" *ngIf="showTyping">
+              <div class="typing-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <!-- Message de bienvenue -->
+            <div class="message-text" *ngIf="showMessage">
+              Hello 👋 How can we help you today?
+            </div>
+            <div class="message-meta" *ngIf="showMessage"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Questions rapides -->
+    <div class="quick-questions">
+      <p>Frequently asked questions:</p>
+      <div class="quick-buttons">
+        <button class="quick-btn" (click)="openWhatsApp()">
+          📍 Opening hours
+        </button>
+        <button class="quick-btn" (click)="openWhatsApp()">💰 Prices</button>
+        <button class="quick-btn" (click)="openWhatsApp()">
+          📋 Make an appointment
+        </button>
+        <button class="quick-btn" (click)="openWhatsApp()">
+          ❓ Other question
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer avec bouton d'action -->
+    <div class="wa-footer">
+      <button class="btn-wa" (click)="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+        Open WhatsApp
+      </button>
+    </div>
+  </div>
+</div>

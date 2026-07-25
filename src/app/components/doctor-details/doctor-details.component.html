@@ -1,0 +1,335 @@
+<!-- BANNIÈRE POUR ACCÈS REFUSÉ - AJOUTER -->
+<div
+  *ngIf="accessDenied"
+  class="access-denied-container"
+  style="
+    text-align: center;
+    padding: 100px 20px;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  "
+>
+  <div style="max-width: 600px">
+    <i
+      class="fas fa-lock"
+      style="font-size: 64px; color: #dc3545; margin-bottom: 30px"
+    ></i>
+    <h1 style="margin-bottom: 20px">Access Restricted</h1>
+    <p style="color: #666; margin-bottom: 30px">
+      We're sorry, but doctor details are not available for visitors from
+      African countries due to regional restrictions.
+    </p>
+    <button
+      class="btn btn-primary"
+      (click)="goBack()"
+      style="
+        padding: 12px 30px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      "
+    >
+      Return to Home
+    </button>
+  </div>
+</div>
+<div class="figma-doctor-page" *ngIf="!loading && doctor" id="doctor-section">
+  <!-- Hero Section (identique à hotel) -->
+  <section class="figma-hero" id="clinic">
+    <div class="hero-center">
+      <h1>Dr. {{ doctor.personalInfo.name }}</h1>
+    </div>
+  </section>
+  <!-- Floating Card with Doctor Info -->
+  <div class="doctor-floating-card">
+    <!-- Navigation Links -->
+    <div class="doctor-nav-links">
+      <button
+        class="nav-link"
+        [class.active]="currentSection === 'about'"
+        (click)="setSection('about')"
+      >
+        <i class="fas fa-user-md"></i>
+        <span>About</span>
+      </button>
+      <button
+        class="nav-link"
+        [class.active]="currentSection === 'services'"
+        (click)="setSection('services')"
+      >
+        <i class="fas fa-stethoscope"></i>
+        <span>Services</span>
+      </button>
+      <button
+        class="nav-link"
+        [class.active]="currentSection === 'experience'"
+        (click)="setSection('experience')"
+      >
+        <i class="fas fa-graduation-cap"></i>
+        <span>Experience</span>
+      </button>
+      <!--      
+<button
+        class="nav-link"
+        [class.active]="currentSection === 'gallery'"
+        (click)="setSection('gallery')"
+      >
+        <i class="fas fa-images"></i>
+        <span>Gallery</span>
+      </button>
+       --> 
+   </div>
+  </div>
+
+  <!-- Navigation tabs -->
+  <div class="nav-tabs">
+    <button
+      class="nav-tab"
+      [class.active]="currentSection === 'about'"
+      (click)="setSection('about')"
+    >
+      About
+    </button>
+    <button
+      class="nav-tab"
+      [class.active]="currentSection === 'services'"
+      (click)="setSection('services')"
+    >
+      Services
+    </button>
+    <button
+      class="nav-tab"
+      [class.active]="currentSection === 'experience'"
+      (click)="setSection('experience')"
+    >
+      Experience
+    </button>
+    <button
+      class="nav-tab"
+      [class.active]="currentSection === 'gallery'"
+      (click)="setSection('gallery')"
+    >
+      Gallery
+    </button>
+  </div>
+
+  <!-- Section About (style ancien avec image) -->
+  <section *ngIf="currentSection === 'about'" class="figma-description">
+    <div class="desc-card about-card">
+      <div class="desc-image">
+        <img
+          [src]="doctor.personalInfo.image || 'assets/img/doctors/default.jpg'"
+          [alt]="doctor.personalInfo.name"
+        />
+        <div class="image-fade"></div>
+      </div>
+
+      <div class="desc-text">
+        <h3>About Dr. {{ doctor.personalInfo.name.split(" ").pop() }}</h3>
+        <p>{{ doctor.professionalInfo.bio }}</p>
+
+        <div class="languages-section">
+          <h4>Languages Spoken</h4>
+          <div class="languages-list">
+            <span
+              *ngFor="let lang of doctor.professionalInfo.languages"
+              class="language-badge"
+            >
+              {{ lang }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Services (nouveau style) -->
+  <section *ngIf="currentSection === 'services'" class="figma-description">
+    <div class="desc-card services-card">
+      <div class="services-content desc-text">
+        <h3>Services & Specialties</h3>
+
+        <div
+          *ngIf="doctor.professionalInfo.services.length > 0; else noServices"
+          class="services-list"
+        >
+          <div
+            *ngFor="let service of doctor.professionalInfo.services"
+            class="service-item"
+          >
+            <div class="service-icon">
+              <i class="fas fa-user-md"></i>
+            </div>
+            <div class="service-details">
+              <h4 class="service-title">{{ service.name }}</h4>
+              <p class="service-description">{{ service.description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <ng-template #noServices>
+          <div class="no-content-message">
+            <i class="fas fa-info-circle"></i>
+            <p>No specific services listed yet.</p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Experience & Education (nouveau style) -->
+  <section *ngIf="currentSection === 'experience'" class="figma-description">
+    <div class="desc-card experience-card">
+      <div class="experience-content desc-text">
+        <h3>Experience & Education</h3>
+
+        <div class="experience-grid">
+          <div class="education-section">
+            <h4><i class="fas fa-graduation-cap"></i> Education</h4>
+            <ul class="education-list">
+              <li *ngFor="let edu of doctor.professionalInfo.education">
+                <i style="color: white !important" class="fas fa-check-circle"></i> {{ edu }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="certifications-section">
+            <h4><i class="fas fa-certificate"></i> Certifications</h4>
+            <ul class="certifications-list">
+              <li *ngFor="let cert of doctor.professionalInfo.certifications">
+                <i style="color: white !important" class="fas fa-award"></i> {{ cert }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Gallery (nouveau style) avec images floues -->
+  <section *ngIf="currentSection === 'gallery'" class="figma-description">
+    <div class="desc-card gallery-card">
+      <div class="gallery-content desc-text">
+        <h3>Before & After Gallery</h3>
+        <p class="gallery-subtitle">
+          Clinical cases performed by Dr.
+          {{ doctor.personalInfo.name.split(" ").pop() }}
+        </p>
+
+        <!-- Avertissement sur la sensibilité des images -->
+        <div class="gallery-warning">
+          <i class="fas fa-eye-slash"></i>
+          <span>
+            <strong>Medical confidentiality :</strong> Images are blurred by
+            default. Click an image to view it clearly in zoom.
+          </span>
+        </div>
+
+        <!-- Option pour révéler temporairement toutes les images -->
+        <div class="gallery-reveal-toggle" *ngIf="hasGallery()">
+          <button
+            class="btn-reveal-gallery"
+            (click)="toggleGalleryReveal()"
+            [class.active]="galleryRevealed"
+          >
+            <i
+              [class]="galleryRevealed ? 'fas fa-lock' : 'fas fa-unlock-alt'"
+            ></i>
+            {{ galleryRevealed ? "Hide all images" : "Reveal all images" }}
+          </button>
+        </div>
+
+        <div *ngIf="hasGallery()">
+          <!-- Flex Gallery avec effet magnifier et flou -->
+          <div class="flex-gallery" [class.gallery-unlocked]="galleryRevealed">
+            <div
+              *ngFor="let image of getGalleryImages(); let i = index"
+              class="flex-item gallery-item"
+              [attr.data-index]="i + 1"
+              (click)="toggleImageZoom(i)"
+              [class.zoomed]="zoomImageIndex === i"
+            >
+              <img
+                [src]="image"
+                [alt]="'Before/After ' + (i + 1)"
+                class="flex-image gallery-image"
+                loading="lazy"
+              />
+
+              <!-- BOUTON DE FERMETURE SUR L'IMAGE ZOOMÉE -->
+              <button
+                *ngIf="zoomImageIndex === i"
+                class="btn-close-zoom"
+                (click)="closeZoom(); $event.stopPropagation()"
+                aria-label="Close zoom"
+                title="Close"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Zoomed gallery controls -->
+          <div class="gallery-controls" *ngIf="zoomImageIndex !== null">
+            <div class="zoom-info">
+              <span class="current-index">{{ zoomImageIndex! + 1 }}</span>
+              <span class="total-images"
+                >/ {{ getGalleryImages().length }}</span
+              >
+              <span class="image-type">
+                {{ zoomImageIndex! % 2 === 0 ? "Before" : "After" }}
+              </span>
+            </div>
+
+            <div class="zoom-actions">
+              <button class="btn-zoom-action" (click)="prevZoomImage()">
+                <i class="fas fa-chevron-left"></i>
+                Previous
+              </button>
+              <button class="btn-zoom-action" (click)="nextZoomImage()">
+                Next
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Navigation information -->
+          <div class="gallery-help">
+            <p>
+              <i class="fas fa-info-circle"></i>
+              Click an image to view it clearly in zoom. Images are
+              automatically blurred to protect patient privacy.
+            </p>
+          </div>
+        </div>
+
+        <!-- Message if no gallery -->
+        <div *ngIf="!hasGallery()" class="no-content-message">
+          <i class="fas fa-images"></i>
+          <p>No gallery images available yet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Loading State -->
+<div *ngIf="!accessDenied && loading" class="loading-container">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <p>Loading doctor details...</p>
+</div>
+
+<!-- Error State -->
+<div *ngIf="!accessDenied && !loading && !doctor" class="error-container">
+  <h3>Doctor not found</h3>
+  <p>Sorry, we couldn't find the doctor you're looking for.</p>
+  <button class="btn btn-primary" (click)="goBack()">
+    Back to Doctors List
+  </button>
+</div>

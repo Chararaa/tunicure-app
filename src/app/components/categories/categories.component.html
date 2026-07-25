@@ -1,0 +1,117 @@
+<section class="cat-bg" id="categorie">
+  <div class="container" data-aos="fade-up">
+    <div class="container section-title" data-aos="fade-up">
+      <div class="hero-center">
+        <div class="services-btn">
+          <span class="icon"></span>
+          <p class="custom-title">Surgical Specialties</p>
+        </div>
+
+        <p class="custom-heading">Explore our range of surgeries</p>
+      </div>
+    </div>
+    <!-- Loading State -->
+    @if (loading) {
+      <div class="text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-3">Loading categories...</p>
+      </div>
+    }
+
+    <!-- Error State - Simple message -->
+    @if (error && !loading) {
+      <div class="text-center py-5">
+        <i class="fas fa-list-alt iconcat"></i>
+        <h4 class="nocat mb-3">Loading error</h4>
+        <p class="text-muted mb-4">
+          Unable to load categories at the moment.
+        </p>
+      </div>
+    }
+
+    <!-- Categories Swiper -->
+    @if (!loading && !error) {
+      @if (categories.length === 0) {
+        <div class="text-center py-5 text-muted">
+          <i class="fas fa-list-alt iconcat"></i>
+          <p class="nocat">No category available at the moment.</p>
+        </div>
+      } @else {
+        <div class="categories-swiper-wrapper">
+          <!-- Swiper Container -->
+          <div class="swiper categories-swiper" #swiperContainer>
+            <div class="swiper-wrapper">
+              @for (category of categories; track category._id) {
+                <div class="swiper-slide">
+                  <div
+                    class="category-card"
+                    (click)="navigateToCategory(category)"
+                  >
+                    <!-- Image covering the whole card -->
+                    <div class="category-image-wrapper">
+                      @if (isIconUrl(category.icon)) {
+<div
+                          class="category-main-image"
+                          [style.backgroundImage]="
+                            'url(' + category.icon + ')'
+                          "
+                        ></div>
+                      }                         
+@else {
+                        <div class="category-image-fallback">
+                          <i [class]="getIconClass(category.icon)"></i>
+                        </div>
+                      }
+                    </div>
+
+                    <!-- Contenu superposé en bas -->
+                    <div class="category-content-overlay">
+                      <div class="category-info-bottom">
+                        <h3>{{ category.name || "Category without name" }}</h3>
+                        <button class="btn-category-details">
+                          <span>Explore More</span>
+                          <img
+                            src="assets/img/clinics/pepicons-pop_arrow-up.png"
+                            class="btn-arrow"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+
+            <!-- Navigation buttons -->
+            
+
+
+            @if (categories.length > 4) {
+              <div class="swiper-button-next">
+                <img
+                  src="assets/img/home/flechdroite.png"
+                  alt="Next"
+                  class="custom-arrow"
+                />
+              </div>
+              <div class="swiper-button-prev">
+                <img
+                  src="assets/img/home/flechgauche.png"
+                  alt="Prev"
+                  class="custom-arrow"
+                />
+              </div>
+            }
+
+
+
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      }
+    }
+  </div>
+</section>

@@ -1,0 +1,1222 @@
+
+.page-content {
+    display: block;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.scroll-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+}
+
+.scroll-top-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.arrow-icon {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+.scroll-text {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+
+.service-bg {
+    background:
+        url('/assets/img/home/Union.png'),
+        url('/assets/img/home/cosmetic-surgery-procedure-clinical-setting.png');
+    background-color: #F1F8FC;
+    background-size: cover, cover, cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 120px 0 150px;
+    overflow: hidden;
+}
+
+/* Pour que le contenu reste au-dessus des demi-cercles */
+.service-bg .container,
+.service-bg .section-title {
+    position: relative;
+    z-index: 2;
+}
+
+/* Ajustement du padding pour le titre */
+.section-title {
+    padding-top: 40px;
+    /* Espace entre le demi-cercle et le titre */
+    margin-bottom: 0;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.custom-heading {
+    font-family: 'Asap', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 33px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #223E68;
+}
+
+.custom-heading2 {
+    font-family: 'Asap', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 33px;
+    letter-spacing: 0;
+    text-align: start;
+    color: #FFFFFF;
+}
+
+.custom-title2 {
+    font-family: 'Asap', sans-serif;
+    font-weight: 600;
+    font-style: bold;
+    font-size: 32px;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: start;
+    color: #223E68;
+}
+
+.custom-title22 {
+    font-family: 'Asap', sans-serif;
+    font-weight: 400;
+    font-style: regular;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: start;
+    color: #5D5D5D;
+}
+
+.custom-title {
+    font-family: 'Asap', sans-serif;
+    font-weight: 600;
+    font-style: semibold;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.custom-title3 {
+    font-family: 'Asap', sans-serif;
+    font-weight: 600;
+    font-style: semibold;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: start;
+    color: #223E68;
+    margin-bottom: 10px;
+}
+
+.services-btn1 {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 30px 70px;
+    font-size: 40px;
+    font-weight: 600;
+    color: white;
+
+    border: none;
+    border-radius: 80px;
+    cursor: pointer;
+
+    /* dégradé bleu */
+    background: linear-gradient(135deg, #1aa6c9, #238fb2);
+
+    /* ombre */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.hero-center {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.hero-center2 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    gap: 25px;
+}
+
+.services-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 4px 20px;
+    border-radius: 60px;
+
+    background: linear-gradient(90deg, #1fa4c7, #2a8fb0);
+}
+
+.icon {
+    width: 22px;
+    height: 22px;
+    display: block;
+
+    background-image: url('/assets/img/home/Vector.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+}
+
+/* Laptop */
+@media (max-width:1200px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablet */
+@media (max-width:992px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .custom-heading {
+        font-size: 24px;
+        line-height: 30px;
+        padding: 0 20px;
+    }
+
+}
+
+/* Mobile */
+@media (max-width:576px) {
+    .btn-cta-center {
+        left: 25%;
+        position: relative;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .custom-heading {
+        font-size: 20px;
+    }
+
+    .services-btn {
+        padding: 10px 20px;
+    }
+
+.service-bg {
+        padding: 200px 0 220px;
+    }
+
+}
+
+
+.service-card {
+    position: relative;
+    background: white;
+    padding: 30px 30px 1px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.service-icon {
+    position: absolute;
+    top: -28px;
+    left: 25px;
+
+    width: 70px;
+    height: 70px;
+    border-radius: 14px;
+
+    background: linear-gradient(145deg, #f6d365, #c79a18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-icon img {
+    width: 32px;
+}
+
+.service-icon2 {
+    position: absolute;
+    top: -28px;
+    left: 25px;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 7px;
+
+    background: linear-gradient(232.8deg, #8D5A12 5.51%, #D5B334 44.07%, #EAD279 78.42%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-icon2 img {
+    height: 27px;
+    width: 23px;
+}
+
+
+.service-card h3 {
+    font-family: 'Asap', sans-serif;
+    font-weight: 700;
+    font-style: bold;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0;
+    text-align: start;
+    color: #2c4666;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    color: #6c6c6c;
+    font-family: 'Asap', sans-serif;
+    font-weight: 400;
+    font-style: regular;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0;
+    text-align: start;
+}
+
+.faq-container {
+    height: 260px;
+    /* hauteur fixe */
+    overflow-y: auto;
+    /* scroll interne */
+    padding-right: 10px;
+}
+
+/* scrollbar moderne */
+.faq-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.faq-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.faq-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+
+/* SECTION BACKGROUND */
+.faq-section {
+    position: relative;
+    min-height: calc(100vh 0);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background: linear-gradient(#223E68BD, #223E68BD),
+        url("/assets/img/home/blurry-office-meeting-scene-with-indistinct-figures-conveying-sense-anonymity-fastpac.jpg");
+    background-size: contain;
+}
+
+/* colonne gauche */
+.faq-left {
+    padding: 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.content-wrapper {
+    max-width: 600px;
+}
+
+.faq-doctor {
+    position: absolute;
+    right: -5%;
+    bottom: -90px;
+    width: 720px;
+    height: 820px;
+    pointer-events: none;
+
+    background: url("/assets/img/home/medecin-souriante-portant-manteau-blanc-stethoscope-pointe-vers-droite.png") right bottom / contain no-repeat;
+}
+
+
+
+.section-title {
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    line-height: 1.2;
+}
+
+@media (min-width: 2000px) {
+    .faq-right {
+        background-size: 38%;
+    }
+}
+
+@media (max-width: 1600px) {
+    .faq-doctor {
+        width: 1000px;
+        height: 1000px;
+        right: -40px;
+    }
+
+    .faq-right {
+        background-size: 55%;
+    }
+}
+
+/* Laptop */
+@media (max-width: 1400px) {
+    .faq-doctor {
+        width: 800px;
+        height: 800px;
+        right: -60px;
+    }
+
+}
+
+/* Small laptop */
+@media (max-width: 1200px) {
+    .faq-left {
+        padding: 80px 0;
+    }
+
+    .faq-doctor {
+        width: 1000px;
+        height: 1000px;
+        right: -80px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+    .hero-center2 {
+
+        align-items: center;
+    }
+
+    .faq-doctor {
+        left: 35%;
+        transform: translateX(-50%);
+        right: auto;
+        bottom: -20px;
+
+        width: 900px;
+        height: 900px;
+    }
+
+    .faq-section {
+        padding-bottom: 320px;
+    }
+
+
+    .faq-left {
+        text-align: center;
+        padding: 70px !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .faq-doctor {
+        height: 400px;
+        width: 397px;
+        background-size: cover;
+        left: 55%;
+    }
+
+    .custom-heading2 {
+        text-align: center !important;
+    }
+}
+
+
+
+/* Texte gauche */
+.faq-section .section-title h2 {
+    color: #fff;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.faq-section .section-title p {
+    color: #ddd;
+    margin-bottom: 40px;
+}
+
+/* FAQ cards */
+.faq-section .faq-item {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(6px);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.faq-section .faq-item h3 {
+    color: #fff;
+    font-size: 18px;
+}
+
+.faq-section .faq-content p {
+    color: #eaeaea;
+}
+
+/* Image droite */
+.faq-img {
+    max-width: 90%;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 991px) {
+
+
+
+    .faq-left {
+        padding: 70px 25px;
+        text-align: center;
+    }
+
+    .faq-right {
+        min-height: 420px;
+        background-position: center bottom;
+        margin-top: 40px;
+    }
+}
+
+/* question row */
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease, margin 0.3s ease;
+}
+
+.faq-item.active .faq-content {
+    margin-top: 15px;
+}
+
+.faq-item i {
+    transition: 0.3s;
+    font-size: 18px;
+}
+
+.faq-item.active i {
+    transform: rotate(180deg);
+}
+
+/* HEADER */
+.contact-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-badge {
+    background: #2ca7c9;
+    color: white;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.contact-header h2 {
+    font-weight: 700;
+    color: #243b5a;
+}
+
+/* BIG BLUE CARD */
+.contact-card {
+    background: #223E68;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+/* GRID */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: stretch;
+    /* IMPORTANT */
+}
+
+/* FORM */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    background: #e9ecef;
+}
+
+
+
+.contact-form textarea {
+    border-radius: 15px;
+    height: 150px;
+    resize: none;
+}
+
+/* INPUT ROW */
+.contact-form .row {
+    display: flex;
+    gap: 15px;
+    padding: 0 15px;
+}
+
+.contact-form .row input {
+    width: 50%;
+}
+
+/* BUTTON GOLD */
+.contact-btn {
+    background: linear-gradient(85.49deg, #8D5A12 3.66%, #EAD279 59.79%);
+    color: white;
+    border: none;
+    padding: 16px 28px;
+    border-radius: 40px;
+    /* ⭐ bouton pill comme Figma */
+    font-family: 'Asap', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    /* ⭐ prend toute la largeur */
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(141, 90, 18, 0.35);
+}
+
+.contact-btn i {
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+.contact-btn:hover i {
+    transform: translateX(6px);
+}
+
+.contact-btn:hover .btn-arrow {
+    transform: translateX(6px);
+}
+
+.btn-arrow {
+    width: 30px;
+    height: 30px;
+    transition: 0.3s ease;
+    filter: brightness(0) invert(1);
+
+}
+
+.contact-map {
+    height: 100%;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    /* IMPORTANT */
+    min-height: 100%;
+    border: 0;
+    border-radius: 15px;
+}
+
+/* RESPONSIVE */
+@media(max-width:992px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-success {
+    color: #28a745;
+    margin-top: 15px;
+    font-weight: 500;
+    animation: fadeIn .5s;
+}
+
+.form-error {
+    color: #e63946;
+    margin-top: 15px;
+    font-weight: 500;
+    animation: fadeIn .5s;
+}
+
+.contact-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* ============ HERO LAYOUT ============ */
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* HERO OVERLAP DESKTOP */
+.hero {
+    position: relative;
+    min-height: auto;
+    height: 700px;
+}
+
+.hero-boxes {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: flex-start;
+}
+
+/* ================= TABLET / SMALL DESKTOP ================= */
+@media (max-width:1900px) {
+
+    /* le hero redevient normal */
+    .hero {
+        height: 950px;
+    }
+}
+@media (max-width:1500px) {
+
+    /* le hero redevient normal */
+    .hero {
+        height: 700px;
+    }
+}
+
+@media (max-width:1200px) {
+
+    /* le hero redevient normal */
+    .hero {
+        min-height: auto;
+        padding-bottom: 120px;
+    }
+
+    /* les boxes redeviennent dans le flux */
+    .hero-boxes {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: 80px;
+        justify-content: center;
+        /* ⭐ CENTRAGE GLOBAL */
+    }
+
+    /* IMPORTANT : supprimer les décalages cassants */
+    .mini-wrapper {
+        position: static;
+        left: auto;
+        top: auto;
+        margin-left: 40px;
+    }
+
+}
+
+
+@media (max-width:1024px) {
+
+    .welcome {
+        position: relative;
+        /* ⭐ FIN DU ABSOLUTE */
+        top: auto;
+        margin-top: 40px;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .hero-boxes {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .why-box {
+        width: 100%;
+        max-width: 520px;
+        height: auto;
+    }
+
+    .mini-wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+        margin-left: 0;
+    }
+
+    .mini-box {
+        width: 45%;
+        min-width: 260px;
+        height: auto;
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .hero {
+        padding: 80px 0;
+    }
+
+    .hero-title {
+        font-size: 42px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+        max-width: 100%;
+    }
+
+    .mini-wrapper {
+        left: 0 !important;
+        top: auto;
+        margin-left: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+    }
+
+    .mini-box {
+        width: 45%;
+        min-width: 260px;
+        height: auto;
+    }
+}
+
+
+@media (max-width:576px) {
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .mini-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mini-box {
+        width: 100%;
+        max-width: 340px;
+    }
+
+}
+
+
+/* ============ BOX BLEUE ============ */
+
+.box1 {
+    background: #223E68 !important;
+    border-radius: 23px !important;
+}
+
+.why-box {
+    width: 420px;
+    height: 400px;
+    padding: 40px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* centre verticalement */
+    text-align: center;
+    /* centre horizontalement */
+
+}
+
+.why-box h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #15a5d8
+}
+
+.why-box p {
+    font-size: 15px;
+    line-height: 1.7;
+    opacity: 0.95;
+}
+
+/* ============ GROUPE DES 3 CARDS ============ */
+
+.mini-wrapper {
+    display: flex;
+    gap: 30px;
+    position: relative;
+    left: 60px;
+    /* espace horizontal entre groupes */
+    top: 70px;
+    /* les cards sont plus basses que la box bleue */
+}
+
+/* ============ MINI CARDS ============ */
+
+.mini-box {
+    width: 260px;
+    height: 330px;
+    padding: 35px 28px;
+    border-radius: 22px;
+    text-align: center;
+
+    /* GLASS EFFECT FIGMA */
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(70px);
+    -webkit-backdrop-filter: blur(70px);
+
+    /* SHADOW FIGMA */
+    box-shadow: -7px 8px 13.3px 0px #5D5D5D1C;
+}
+
+/* TITRES */
+.mini-box h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+/* TEXTE */
+.mini-box p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6b6b6b;
+}
+
+.welcome {
+    position: absolute;
+    left: 0;
+    max-width: 520px;
+    z-index: 3;
+    top: -90px;
+}
+
+
+.hero-title {
+    font-size: 56px;
+    line-height: 1.05;
+    margin-bottom: 20px;
+}
+
+/* Welcome */
+.hero-title .light {
+    color: #223E68;
+    font-family: Cormorant SC;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 75px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 0%;
+
+}
+
+/* to TUNICURE */
+.hero-title .bold {
+    color: #ffffff;
+    font-family: Cormorant SC;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 75px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 0%;
+
+}
+
+.hero-subtitle {
+    font-family: Asap;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 22px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #223E68;
+}
+
+.boxl {
+    backdrop-filter: blur(70px);
+    box-shadow: -7px 8px 13.3px 0px #5D5D5D1C;
+}
+
+
+/* Button */
+.btn-clinic-details {
+    background: linear-gradient(85.49deg, #8D5A12 3.66%, #EAD279 59.79%);
+    color: white;
+    border: none;
+    padding: 7px 28px;
+    border-radius: 40px;
+    /* ⭐ bouton pill comme Figma */
+    font-family: 'Asap', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    /* ⭐ prend toute la largeur */
+}
+
+
+.btn-clinic-details:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(141, 90, 18, 0.35);
+}
+
+.btn-clinic-details i {
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+.btn-clinic-details:hover i {
+    transform: translateX(6px);
+}
+
+.btn-cta-center {
+    width: fit-content;
+    margin: 30px 0 0;
+    padding: 16px 40px;
+}
+
+/* ABOUT SECTION BACKGROUND */
+.about-tunicure {
+    position: relative;
+    padding: 30px 0;
+    overflow: hidden;
+        background-color: #F1F8FC;
+    background-size: contain;
+}
+
+
+.about-tunicure2 {
+    position: relative;
+    padding: 0px 0 30px;
+    overflow: hidden;
+    background-color: #F1F8FC;
+    background-size: contain;
+}
+/* small badge */
+.about-badge {
+    display: inline-block;
+    background: #e8f3fb;
+    color: #0d6efd;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* title */
+.about-title {
+    font-size: 38px;
+    font-weight: 700;
+    color: #1c355e;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+/* paragraph */
+.about-text {
+    color: #6c757d;
+    margin-bottom: 30px;
+}
+
+/* features */
+.about-feature {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 0;
+    align-items: baseline;
+}
+
+.icon-box {
+    min-width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #0d6efd;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.about-feature h5 {
+    font-weight: 700;
+    color: #1c355e;
+    margin-bottom: 6px;
+}
+
+/* IMAGE SIDE */
+.about-image-wrapper {
+    position: relative;
+    height: 100%;
+}
+
+.about-image-wrapper img {
+    width: 100%;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* shape container */
+.image-shape {
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+
+/* l’image */
+.image-shape img {
+    width: 100%;
+    height: 100%;
+    /* ⭐ clé */
+    object-fit: cover;
+    /* ⭐ garde proportions */
+    display: block;
+    border-radius: 30px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* CUT CORNER effect */
+.image-shape::after {
+    content: "";
+    position: absolute;
+    right: -2px;
+    bottom: -2px;
+
+    /* taille de la découpe (clé du design) */
+    width: 210px;
+    height: 110px;
+
+    background: #f5f7fb;
+    border-top-left-radius: 45px;
+
+    z-index: 3;
+}
+
+
+.image-shape img {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* badge position */
+.experience-badge {
+    position: absolute;
+    right: 2px;
+    bottom: 1px;
+    background-image: linear-gradient(#243F69B2, #243F69B2);
+    padding: 20px 26px;
+    border-radius: 35px 0px 0px 0px;
+    font-size: 18px;
+    text-align: center;
+    background-position: bottom;
+    z-index: 5;
+    color: #FFFFFF;
+}
+
+
+.experience-badge strong {
+    display: block;
+    font-size: 22px;
+}
+
+.icon-img {
+    min-width: 20px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-img img {
+    width: 15px;
+    height: 15px;
+}

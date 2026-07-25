@@ -1,0 +1,64 @@
+<div class="figma-clinic-page" *ngIf="clinic">
+  <!-- Hero Section (identique à hotel) -->
+  <section class="figma-hero" id="clinic">
+    <div class="hero-center">
+      <h1 style="color: white">Medical Clinic</h1>
+    </div>
+  </section>
+  <div class="clinic-floating-card">
+    <h2>{{ clinic.name }}</h2>
+
+    <div class="stars">
+      @for (star of [1, 2, 3, 4, 5]; track star) {
+        <i
+          class="bi"
+          [class.bi-star-fill]="star <= clinic.rating"
+          [class.bi-star]="star > clinic.rating"
+        ></i>
+      }
+      <span class="rating-text">({{ clinic.rating }}/5)</span>
+    </div>
+
+    <div class="clinic-location">
+      <i class="bi bi-geo-alt"></i>
+      <span>{{ clinic.location }}</span>
+    </div>
+  </div>
+  <!-- Description Section -->
+  <section class="figma-description container">
+    <div class="desc-card">
+      <div class="desc-image">
+        <img
+          [src]="clinic.images[0]"
+          [alt]="clinic.name + ' - image principale'"
+        />
+        <div class="image-fade"></div>
+      </div>
+
+      <div class="desc-text">
+        <h3>About the Clinic</h3>
+        <p>{{ clinic.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="figma-gallery container">
+    <h3>Photo Gallery</h3>
+    <p>Explore our modern medical facilities and comfortable patient rooms</p>
+
+    <div class="flex-gallery">
+      <div
+        *ngFor="let image of clinic.images; let i = index"
+        class="flex-item"
+        (click)="selectImage(image)"
+      >
+        <img
+          [src]="image"
+          [alt]="'Clinic image ' + (i + 1)"
+          class="flex-image"
+        />
+      </div>
+    </div>
+  </section>
+</div>

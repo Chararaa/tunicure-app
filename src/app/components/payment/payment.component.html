@@ -1,0 +1,152 @@
+<div class="order-form-container payment-container">
+  <!-- Hero Section -->
+  <section class="figma-hero mb-2">
+    <div class="hero-center">
+      <h1 style="color: white">Payment & Confirmation</h1>
+    </div>
+  </section>
+  <!-- Payment Container -->
+  <div class="step-container">
+    <div class="form-section">
+      <!-- Header -->
+      <div class="mb-4">
+        <p class="custom-font mb-0">
+          Complete your payment to confirm your consultation
+        </p>
+        <p class="custom-font mb-0">Secure and encrypted payment process</p>
+      </div>
+
+      <!-- Loading State -->
+      <div *ngIf="isLoading" class="loading">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-3">Loading your invoice...</p>
+      </div>
+
+      <!-- Error State -->
+      <div *ngIf="error" class="error-message">
+        <i class="bi bi-exclamation-triangle me-2"></i>
+        {{ error }}
+      </div>
+
+      <!-- Payment Content -->
+      <div *ngIf="order && !isLoading" class="payment-content">
+        <!-- Order Information -->
+        <div class="summary-section mb-4">
+          <h3>Order Summary</h3>
+          <div class="summary-grid">
+            <div class="summary-item">
+              <h6>Client Information</h6>
+              <div class="summary-details">
+                <p><strong>Name:</strong> {{ order.clientInfo.name }}</p>
+                <p><strong>Email:</strong> {{ order.clientInfo.email }}</p>
+                <p><strong>Phone:</strong> {{ order.clientInfo.phone }}</p>
+              </div>
+            </div>
+
+            <div class="summary-item">
+              <h6>Order Details</h6>
+              <div class="summary-details">
+                <p>
+                  <strong>Reference:</strong> {{ order._id | slice: 0 : 8 }}...
+                </p>
+                <p><strong>Procedure:</strong> {{ order.categoryName }}</p>
+                <p>
+                  <strong>Created:</strong>
+                  {{ order.createdAt | date: "dd/MM/yyyy" }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Details -->
+        <div class="payment-details-section">
+          <h2>Payment Details</h2>
+
+          <div class="price-table">
+            <div class="price-row">
+              <span class="price-label">Total Procedure Amount</span>
+              <span class="price-value">
+                {{ order.price | currency: "EUR" : "symbol" : "1.2-2" }}
+              </span>
+            </div>
+
+            <div class="price-row highlight">
+              <span class="price-label">Required Deposit (10%)</span>
+              <span class="price-value deposit">
+                {{
+                  calculateDepositAmount()
+                    | currency: "EUR" : "symbol" : "1.2-2"
+                }}
+              </span>
+            </div>
+
+            <div class="price-row total">
+              <span class="price-label">Balance Due Later</span>
+              <span class="price-value">
+                {{
+                  calculateRemainingAmount()
+                    | currency: "EUR" : "symbol" : "1.2-2"
+                }}
+              </span>
+            </div>
+            <!-- Information Box -->
+            <div class="info-box">
+              <div class="info-icon">ℹ️</div>
+              <div class="info-content">
+                <h4>Payment Information</h4>
+                <p>
+                  A 10% deposit is required to confirm your booking. The balance
+                  will be settled before your procedure.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment button -->
+          <div class="text-center mt-4">
+            <button class="btn btn-success btn-lg" (click)="proceedToPayment()">
+              <i class="bi bi-lock me-2"></i>
+              Pay
+              {{
+                calculateDepositAmount() | currency: "EUR" : "symbol" : "1.2-2"
+              }}
+              online
+            </button>
+            <!-- Security Info -->
+            <div class="security-box">
+              <div class="security-icon">🔒</div>
+              <div class="security-content">
+                <h4>Secure Payment</h4>
+                <p>
+                  Your payment information is encrypted and securely
+                  transmitted. We never store your banking details.
+                </p>
+                <div class="security-badges">
+                  <span class="security-badge">SSL Encrypted</span>
+                  <span class="security-badge">PCI Compliant</span>
+                  <span class="security-badge">Stripe® Secure</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="additional-info">
+              <p class="text-muted">
+                <i class="bi bi-shield-check"></i>
+                Powered by Stripe® - 256-bit SSL encryption
+              </p>
+              <p class="text-muted small">
+                By proceeding, you agree to our
+                <a href="#" class="privacy-link">Terms of Service</a> and
+                <a href="#" class="privacy-link">Privacy Policy</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

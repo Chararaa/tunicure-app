@@ -1,0 +1,368 @@
+/* SECTION */
+.testimonials-section {
+    position: relative;
+    padding: 30px 0;
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* BADGE */
+.badge {
+    background: #2bb3da;
+    color: #fff;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* TITLE */
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0;
+}
+
+/* GRID */
+.cards {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* CARD */
+.testimonial-card {
+    position: relative;
+    background: white;
+    border-radius: 28px;
+    padding: 70px 35px 40px;
+    width: 340px;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.06)) drop-shadow(0 40px 90px rgba(0, 0, 0, 0.08));
+    transition: 0.3s;
+
+    /* Styles .inverted-radius intégrés */
+    --r: 28px;
+    /* correspond au border-radius existant */
+    --s: 30px;
+    /* taille de la courbe intérieure */
+    --x: 20px;
+    /* décalage horizontal */
+    --y: 10px;
+    /* décalage vertical */
+
+    --_m: / calc(2 * var(--r)) calc(2 * var(--r)) radial-gradient(#000 70%, #0000 72%);
+    --_g: conic-gradient(at calc(100% - var(--r)) var(--r), #0000 25%, #000 0);
+    --_d: calc(var(--s) + var(--r));
+
+    mask:
+        calc(100% - var(--_d) - var(--x)) 0 var(--_m),
+        100% calc(var(--_d) + var(--y)) var(--_m),
+        radial-gradient(var(--s) at 100% 0, #0000 99%, #000 calc(100% + 1px)) calc(-1 * var(--r) - var(--x)) calc(var(--r) + var(--y)),
+        var(--_g) calc(-1 * var(--_d) - var(--x)) 0,
+        var(--_g) 0 calc(var(--_d) + var(--y));
+    mask-repeat: no-repeat;
+}
+
+.swiper {
+    overflow: hidden;
+    padding: 45px 45px 0;
+    /* Pour éviter que les éléments ne soient coupés */
+}
+
+.swiper-slide {
+    height: auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px 50px;
+    /* Espacement latéral et pour l'avatar */
+    box-sizing: border-box;
+}
+
+.swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+    /* Les slides prennent toute la hauteur */
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+}
+
+/* ENCOCHE RONDE */
+.testimonial-card::before {
+    display: none;
+
+}
+
+/* AVATAR */
+.avatar {
+    position: absolute;
+    top: -40px;
+    right: -10px;
+    transform: none;
+    z-index: 3;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 8px solid #f4f7fb;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.avatar-initial {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2bb3da 0%, #1f8ca8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Asap', sans-serif;
+}
+
+.swiper-slide:nth-child(1) .avatar-initial {
+    background: linear-gradient(135deg, #2bb3da, #1f8ca8);
+}
+
+.swiper-slide:nth-child(2) .avatar-initial {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+}
+
+.swiper-slide:nth-child(3) .avatar-initial {
+    background: linear-gradient(135deg, #e67e22, #d35400);
+}
+
+.swiper-slide:nth-child(4) .avatar-initial {
+    background: linear-gradient(135deg, #27ae60, #229954);
+}
+
+
+/* NAME */
+.testimonial-card h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-top: 20px;
+}
+
+/* MESSAGE */
+.message {
+    margin: 18px auto 25px;
+    color: #6f7c8d;
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 300px;
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 10px;
+    text-align: left;
+}
+
+/* Style pour la scrollbar du message */
+.message::-webkit-scrollbar {
+    width: 4px;
+}
+
+.message::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.message::-webkit-scrollbar-thumb {
+    background: #2bb3da;
+    border-radius: 4px;
+}
+
+/* STARS */
+.stars {
+    color: #ffb400;
+    font-size: 22px;
+    letter-spacing: 3px;
+    margin-top: 10px;
+}
+
+/* Style du bouton Voir plus */
+.read-more-btn {
+    background: transparent;
+    border: 2px solid #2bb3da;
+    color: #2bb3da;
+    padding: 8px 25px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 5px 0 10px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-family: 'Asap', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.read-more-btn:hover {
+    background: #2bb3da;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(43, 179, 218, 0.3);
+}
+
+/* MODIFIEZ les styles de la quote */
+.quote-icon {
+    position: absolute;
+    top: 35px;
+    left: 30px;
+    width: 60px;
+    /* Ajustez la taille selon votre image */
+    height: 60px;
+    object-fit: contain;
+    z-index: 2;
+}
+
+/* Supprimez l'ancienne classe .quote */
+.quote {
+    display: none;
+}
+
+.hero-center {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.services-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 20px;
+    border-radius: 60px;
+    background: linear-gradient(90deg, #1fa4c7, #2a8fb0);
+}
+
+.icon {
+    width: 22px;
+    height: 22px;
+    display: block;
+    background: url('/assets/img/home/Vector.png') center/100% no-repeat;
+}
+
+.custom-title {
+    font-family: 'Asap', sans-serif;
+    font-size: 12px;
+    color: white;
+    margin: 0;
+}
+
+.custom-heading {
+    font-family: 'Asap', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 33px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #223E68;
+}
+
+.bg {
+    position: relative;
+    padding: 30px 0 0;
+    overflow: hidden;
+    background-color: #F1F8FC;
+    background-size: contain;
+}
+
+/* Styles Swiper pagination */
+.swiper-pagination {
+    position: relative;
+    margin-top: 30px;
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    opacity: 1;
+    margin: 0 5px !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: #2bb3da;
+    transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .custom-heading {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .testimonial-card {
+        padding: 60px 25px 30px;
+        width: 300px;
+    }
+
+    .message {
+        font-size: 15px;
+        max-height: 180px;
+    }
+
+    .read-more-btn {
+        padding: 6px 20px;
+        font-size: 13px;
+    }
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+        top: -35px;
+        right: -5px;
+    }
+
+    .avatar-initial {
+        font-size: 30px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .testimonial-card {
+        width: 280px;
+        padding: 55px 20px 25px;
+    }
+
+    .custom-heading {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    .quote-icon {
+        width: 40px;
+        height: 40px;
+        top: 25px;
+        left: 20px;
+    }
+
+    .avatar-initial {
+        font-size: 26px;
+    }
+
+}

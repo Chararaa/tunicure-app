@@ -1,0 +1,329 @@
+<footer class="footer-wrapper">
+  <div class="tuni-footer">
+    <div class="container footer-content">
+      <div class="row align-items-start">
+        <!-- LEFT : LOGO + CONTACT -->
+        <div class="col-lg-4 footer-brand">
+          <img src="assets/img/home/logofooter.png" class="footer-logo" />
+
+          <div class="footer-contact">
+            <p>
+              <i class="bi bi-envelope"></i>
+              <a href="mailto:contact@tunicure.com" class="footer-link-contact">
+                contact&#64;tunicure.com
+              </a>
+            </p>
+            <p>
+              <i class="bi bi-whatsapp"></i>
+              <a
+                href="https://wa.me/447403904850"
+                target="_blank"
+                class="footer-link-contact"
+              >
+                (+44) 7403904850
+              </a>
+            </p>
+ <p>
+              <i class="bi bi-whatsapp"></i>
+              <a
+                href="https://wa.me/21698730182"
+                target="_blank"
+                class="footer-link-contact"
+              >
+                (+216) 98 730 182
+              </a>
+            </p>~
+          </div>
+
+          <div class="footer-social">
+            <a href="https://www.facebook.com/TuniCur/" class="facebook"
+              ><i class="bi bi-facebook"></i
+            ></a>
+            <a href="https://www.instagram.com/tuni.cure/" class="instagram"
+              ><i class="bi bi-instagram"></i
+            ></a>
+<a href="https://www.youtube.com/@Tunicure-u4o" class="youtube" target="_blank">
+  <i class="bi bi-youtube"></i>
+</a>
+            <a href="https://www.tiktok.com/@tunicure" class="tiktok"
+              ><i class="fa-brands fa-tiktok"></i
+            ></a>
+            <a
+              href="https://tn.linkedin.com/company/tunicure/"
+              class="linkedin"
+              ><i class="bi bi-linkedin"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="col-lg-2 footer-links">
+          <h4 class="textlink">Quick links</h4>
+          <a href="#home" class="active">Home</a> <a href="#about">About Us</a>
+          <a href="#services">Services</a> <a href="#categorie">Surgery</a>
+          <a href="#hotels">Hotel</a>
+          <a href="#doctors">Find Doctors</a> <a href="#faq">FAQ</a>
+        </div>
+
+        <!-- SURGERY -->
+        <div class="col-lg-3 footer-links">
+          <h4 class="textlink">Our Surgery</h4>
+          <a href="#categorie">Facial surgery</a>
+          <a href="#categorie">Body contouring surgery</a>
+          <a href="#categorie">Bariatric surgery</a>
+          <a href="#categorie">Breast surgery</a>
+          <a href="#categorie">Facial feminization surgery</a>
+          <a href="#categorie">Genital surgery</a>
+          <a href="#categorie">Lasik surgery</a>
+          <a href="#categorie">Dentistry</a>
+          <a href="#categorie">Hair transplant</a>
+        </div>
+
+        <!-- CLINIC -->
+        <div class="col-lg-3 footer-links">
+          <h4 class="textlink">Our Clinic</h4>
+          <a href="#clinics">Clinic El Yoser</a>
+          <a href="#clinics">Clinic Kantaoui</a>
+        </div>
+      </div>
+
+      <div class="footer-separator"></div>
+      <div class="footer-legal-links mt-3">
+        <a
+          href="#"
+          (click)="openPrivacyModal(); $event.preventDefault()"
+          class="legal-link"
+          >Politique de confidentialité</a
+        >
+        <span class="mx-2">•</span>
+        <a
+          href="#"
+          (click)="openCharteModal(); $event.preventDefault()"
+          class="legal-link"
+          >Charte de protection des données</a
+        >
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal Politique de Confidentialité -->
+@if (showPrivacyModal) {
+  <div class="modal-overlay" (click)="closePrivacyModal()">
+    <div class="modal-container" (click)="stopPropagation($event)">
+      <div class="modal-header">
+        <h2 class="modal-title">
+          <i class="bi bi-shield-check"></i>
+          Privacy Policy
+        </h2>
+        <button class="modal-close-btn" (click)="closePrivacyModal()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <div class="modal-content">
+        <div class="modal-scroll-content">
+          <section class="modal-section">
+            <h3><i class="bi bi-info-circle"></i> Who We Are</h3>
+            <p>
+              Tunicure is a Category A travel agency and medical tourism
+              coordination company based in Hammam Sousse, Tunisia. We do not
+              provide medical care. All medical consultations, diagnoses, and
+              treatments are carried out exclusively by properly licensed
+              clinics and doctors in Tunisia.
+            </p>
+            <p>
+              Our role is limited to organising travel, accommodation,
+              appointments, and facilitating communication between patients and
+              medical providers.
+            </p>
+          </section>
+
+          <section class="modal-section">
+            <h3><i class="bi bi-database"></i> Scope of This Policy</h3>
+            <p>
+              This policy explains how Tunicure collects, uses, stores, and
+              shares personal and medical data in accordance with Tunisian law
+              and recognised international best practices, including principles
+              of the UK/EU GDPR where applicable to international clients.
+            </p>
+            <p>By using our website or services, you agree to this policy.</p>
+          </section>
+
+          <section class="modal-section">
+            <h3><i class="bi bi-database"></i> Data We Collect</h3>
+            <ul>
+              <li>
+                Identity and contact details (name, email, phone, nationality,
+                language)
+              </li>
+              <li>Medical data and photographs voluntarily submitted</li>
+              <li>Travel-related information</li>
+              <li>Technical data (IP address, device info, cookies)</li>
+              <li>
+                Payment data processed by secure third-party providers (no card
+                storage)
+              </li>
+            </ul>
+          </section>
+
+          <section class="modal-section">
+            <h3><i class="bi bi-gear"></i> How We Use Your Data</h3>
+            <ul>
+              <li>Organise medical tourism services and appointments</li>
+              <li>
+                Transmit medical information to partner clinics and doctors
+              </li>
+              <li>Manage travel and stay in Tunisia</li>
+              <li>Communicate regarding your request</li>
+              <li>Improve services and comply with legal obligations</li>
+            </ul>
+          </section>
+
+          <section class="modal-section">
+            <h3><i class="bi bi-share"></i> Data Sharing</h3>
+            <p>We may share your data only with:</p>
+            <ul>
+              <li>Licensed clinics and doctors</li>
+              <li>Travel and accommodation partners</li>
+              <li>IT, hosting and payment providers</li>
+              <li>Authorities where required by law</li>
+            </ul>
+            <p>We never sell personal data.</p>
+          </section>
+
+          <section class="modal-section">
+            <h3>
+              <i class="bi bi-globe"></i> International Transfers & Retention
+            </h3>
+            <p>
+              Data may be processed in Tunisia and other countries involved in
+              the service with appropriate safeguards. Data is retained only as
+              long as necessary and securely deleted or anonymised when no
+              longer required.
+            </p>
+          </section>
+
+          <section class="modal-section">
+            <h3><i class="bi bi-person-check"></i> Your Rights</h3>
+            <p>
+              You may request access, correction, deletion, or restriction of
+              processing of your data.
+            </p>
+            <p>Contact: <strong>contact&#64;tunicure.com</strong></p>
+          </section>
+
+          <section class="modal-section">
+            <h3><i class="bi bi-cookie"></i> Cookies</h3>
+            <p>
+              We use cookies to ensure proper functioning of the website,
+              analyse usage and, where applicable, for marketing. Preferences
+              can be managed via the cookie banner or browser settings.
+            </p>
+          </section>
+
+          <section class="modal-section">
+            <h3><i class="bi bi-envelope"></i> Contact</h3>
+            <p>
+              Tunicure<br />
+              Av. 14 Janvier, Hammam Sousse 4011, Tunisia<br />
+              Email: contact&#64;tunicure.com
+            </p>
+          </section>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-modal-close" (click)="closePrivacyModal()">
+          <i class="bi bi-check-circle"></i>
+          I understand and accept
+        </button>
+      </div>
+    </div>
+  </div>
+}
+
+<!-- Modal Charte de Protection des Données -->
+@if (showCharteModal) {
+  <div class="modal-overlay" (click)="closeCharteModal()">
+    <div class="modal-container" (click)="stopPropagation($event)">
+      <div class="modal-header">
+        <h2 class="modal-title">
+          <i class="bi bi-file-earmark-lock"></i>
+          Medical Tourism Disclaimer
+        </h2>
+        <button class="modal-close-btn" (click)="closeCharteModal()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <div class="modal-content">
+        <div class="modal-scroll-content">
+          <section class="modal-section">
+            <h3><i class="bi bi-heart-pulse"></i> Medical Data & Consent</h3>
+            <p>
+              Medical data is sensitive personal data. By submitting information
+              or photographs, you give explicit consent for its use for medical
+              evaluation and coordination of care.
+            </p>
+            <p>
+              Where technically possible, medical files are transmitted directly
+              to treating doctors and are not used by non-medical staff. You
+              confirm that the information you provide is accurate and complete.
+            </p>
+          </section>
+
+          <section class="modal-section">
+            <h3><i class="bi bi-shield-shaded"></i> Medical Responsibility</h3>
+            <p>
+              Tunicure is not a healthcare provider and does not provide medical
+              advice, diagnoses, or guarantees of results. All medical acts are
+              performed under the sole responsibility of the clinics and
+              doctors.
+            </p>
+            <p>
+              Medical outcomes depend on your individual condition and the
+              professional judgement of healthcare providers.
+            </p>
+          </section>
+
+          <section class="modal-section">
+            <h3>
+              <i class="bi bi-cash-coin"></i> Foreign Currency Declaration
+            </h3>
+            <p>
+              Any import or export of foreign currency equal to or exceeding the
+              equivalent of 20,000 Tunisian dinars must be declared to customs
+              upon entry, exit or transit.
+            </p>
+            <ul>
+              <li>
+                Re-export over 5,000 TND requires a stamped import declaration
+              </li>
+              <li>
+                Re-export over 30,000 TND must be done via authorised banks
+              </li>
+              <li>Declaration valid for 3 months and one trip only</li>
+              <li>Declaration is personal and non-transferable</li>
+            </ul>
+          </section>
+
+          <section class="modal-section">
+            <h3><i class="bi bi-arrow-repeat"></i> Policy Updates</h3>
+            <p>
+              This policy may be updated at any time. The latest version
+              published on the website applies.
+            </p>
+          </section>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-modal-close" (click)="closeCharteModal()">
+          <i class="bi bi-file-earmark-check"></i>
+          I have read and understood
+        </button>
+      </div>
+    </div>
+  </div>
+}

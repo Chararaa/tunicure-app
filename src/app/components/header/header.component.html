@@ -1,0 +1,151 @@
+<header id="header" class="header sticky-top">
+  <!-- Topbar -->
+  <div class="topbar d-flex align-items-center">
+    <div
+      class="container d-flex justify-content-center justify-content-md-between"
+    >
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope d-flex align-items-center">
+          <a href="mailto:contact@tunicure.com">contact&#64;tunicure.com</a>
+        </i>
+        <i class="bi bi-phone d-flex align-items-center ms-4">
+          <a
+            href="https://wa.me/447403904850"
+            target="_blank"
+            class="footer-link-contact"
+          >
+            (+44) 740 390 4850
+          </a>
+        
+</i>
+   <i class="bi bi-phone d-flex align-items-center ms-4">
+          <a
+            href="https://wa.me/21698730182"
+            target="_blank"
+            class="footer-link-contact"
+          >
+            (+216) 98 730 182
+          </a>
+        </i>
+      </div>
+
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="https://www.facebook.com/TuniCur/" class="facebook"
+          ><i class="bi bi-facebook"></i
+        ></a>
+        <a href="https://www.instagram.com/tuni.cure/" class="instagram"
+          ><i class="bi bi-instagram"></i
+        ></a>
+<a href="https://www.youtube.com/@Tunicure-u4o" class="youtube" target="_blank">
+  <i class="bi bi-youtube"></i>
+</a>
+        <a href="https://www.tiktok.com/@tunicure" class="tiktok"
+          ><i class="fa-brands fa-tiktok"></i
+        ></a>
+        
+<a
+          href="https://tn.linkedin.com/company/tunicure/"
+          class="linkedin"
+          ><i class="bi bi-linkedin"></i
+        ></a>
+        <app-language-selector></app-language-selector>
+      </div>
+    </div>
+  </div>
+
+  <!-- Branding / Navigation -->
+  <div class="branding d-flex align-items-center">
+    <div
+      class="container position-relative d-flex align-items-center justify-content-between"
+    >
+      <!-- Logo -->
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img
+          src="assets/img/home/logo.png"
+          class="footer-logo"
+          alt="Tunicure Logo"
+        />
+      </a>
+
+      <!-- Menu Desktop (visible à partir de 1024px) -->
+      <nav id="navmenu" class="navmenu d-custom-lg-flex">
+        <ul>
+          <li><a href="#home" class="active">Accueil</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#categorie">Surgery</a></li>
+          <li><a href="#hotels">Hotel</a></li>
+          <li><a href="#clinics">Clinic</a></li>
+          <li><a href="#doctors">Find Doctors</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- Bouton Hamburger pour Mobile -->
+      <button
+        class="mobile-nav-toggle d-custom-lg-none"
+        (click)="toggleMenu()"
+        aria-label="Toggle navigation menu"
+      >
+        <i
+          class="bi"
+          [class.bi-list]="!isMenuOpen"
+          [class.bi-x]="isMenuOpen"
+        ></i>
+      </button>
+
+      <!-- Menu Mobile (visible uniquement sur mobile/tablette quand ouvert) -->
+      <nav
+        *ngIf="isMenuOpen"
+        class="navmenu-mobile d-custom-lg-none"
+        [class.navmenu-show]="isMenuOpen"
+      >
+        <ul>
+          <li><a href="#home" (click)="toggleMenu()">Accueil</a></li>
+          <li><a href="#about" (click)="toggleMenu()">About Us</a></li>
+          <li><a href="#services" (click)="toggleMenu()">Services</a></li>
+          <li><a href="#categorie" (click)="toggleMenu()">Surgery</a></li>
+          <li><a href="#hotels" (click)="toggleMenu()">Hotel</a></li>
+          <li><a href="#clinics" (click)="toggleMenu()">Clinic</a></li>
+          <li><a href="#doctors" (click)="toggleMenu()">Find Doctors</a></li>
+          <li><a href="#faq" (click)="toggleMenu()">FAQ</a></li>
+          <li><a href="#contact" (click)="toggleMenu()">Contact</a></li>
+        </ul>
+        <div
+          class="mobile-social-lang d-flex flex-column align-items-center mt-4"
+        >
+          <div class="social-links-mobile d-flex gap-3 mb-3">
+            <a href="https://www.facebook.com/TuniCur/" class="facebook"
+              ><i class="bi bi-facebook"></i
+            ></a>
+            <a href="https://www.instagram.com/tuni.cure/" class="instagram"
+              ><i class="bi bi-instagram"></i
+            ></a>
+            <a
+              href="https://www.youtube.com/@Tunicure-u4o"
+              class="youtube"
+              target="_blank"
+            >
+              <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://www.tiktok.com/@tunicure" class="tiktok"
+              ><i class="fa-brands fa-tiktok"></i
+            ></a>
+            <a
+              href="https://tn.linkedin.com/company/tunicure/"
+              class="linkedin"
+              ><i class="bi bi-linkedin"></i
+            ></a>
+          </div>
+        </div>
+      </nav>
+    <div
+        class="mobile-language-fixed"
+        *ngIf="isMenuOpen"
+        (click)="$event.stopPropagation()"
+      >
+        <app-language-selector></app-language-selector>
+      </div>
+    </div>
+  </div>
+</header>

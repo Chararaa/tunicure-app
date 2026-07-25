@@ -1,0 +1,174 @@
+<!-- src/app/components/subcategory-detail/subcategory-detail.component.html -->
+<div *ngIf="loading" class="text-center py-5">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div *ngIf="error && !loading" class="alert alert-danger container mt-5">
+  {{ error }}
+  <button class="btn btn-link" routerLink="/categories">
+    Back to categories
+  </button>
+</div>
+
+<div *ngIf="!loading && !error && subcategory">
+  <!-- Banner -->
+  <section class="subcategory-banner" id="sub-cat">
+    <div class="container-fluid p-0">
+      <div
+        class="banner-image"
+        [style.backgroundImage]="'url(' + getSafeBanner() + ')'"
+      >
+        <div class="banner-overlay">
+          <div class="container">
+            <h1>{{ getSafeName() }}</h1>
+            <div class="keywords">
+              <span
+                *ngFor="let keyword of getSafeKeywords()"
+                class="badge bg-light text-dark me-2 mb-2"
+              >
+                {{ keyword }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="subcategory-content py-5">
+    <div class="container">
+      <div class="row">
+        <!-- Main Content -->
+        <div class="col-lg-8">
+          <div class="description-section mb-5">
+            <p class="mb-4 textp2">Description</p>
+            <div
+              class="description-cards-container"
+              *ngIf="descriptionSections.length > 0"
+            >
+              <div
+                class="description-card"
+                *ngFor="let section of descriptionSections; let i = index"
+                [ngClass]="{ 'alternate-card': i % 2 === 1 }"
+              >
+                <div class="card-header">
+                  <h4 class="card-title">{{ section.title }}</h4>
+                </div>
+
+                <div class="card-body">
+                  <div
+                    *ngFor="let paragraph of section.paragraphs"
+                    class="section-paragraph"
+                  >
+                    {{ paragraph }}
+                  </div>
+
+                  <div *ngFor="let list of section.lists" class="list-wrapper">
+                    <ul class="card-list">
+                      <li *ngFor="let item of list">
+                        {{ item }}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Benefits -->
+          <div
+            *ngIf="getSafeBenefits().length > 0"
+            class="benefits-section mb-5"
+          >
+            <h2 class="mb-4">Benefits</h2>
+            <div class="row">
+              <div
+                class="col-md-6 mb-3"
+                *ngFor="let benefit of getSafeBenefits()"
+              >
+                <div class="benefit-card">
+                  <h5>{{ benefit.title || "Avantage" }}</h5>
+                  <p>
+                    {{ benefit.description || "Description not available" }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQs -->
+          <div *ngIf="getSafeFaqs().length > 0" class="faq-section">
+            <h2 class="mb-4">Frequently Asked Questions</h2>
+            <div class="accordion" id="faqAccordion">
+              <div
+                class="accordion-item"
+                *ngFor="let faq of getSafeFaqs(); let i = index"
+              >
+                <h3 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    [attr.data-bs-toggle]="'collapse'"
+                    [attr.data-bs-target]="'#faq' + i"
+                    [attr.aria-expanded]="i === 0"
+                  >
+                    {{ faq.question || "Question" }}
+                  </button>
+                </h3>
+                <div
+                  [id]="'faq' + i"
+                  class="accordion-collapse collapse"
+                  [class.show]="i === 0"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    {{ faq.answer || "Answer not available" }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <div class="info-sidebar">
+            <!-- Price
+             <div class="info-card mb-4">
+              <div class="card-header bg-primary text-white">
+                <h4 class="mb-0 textp">Price</h4>
+              </div>
+              <div class="card-body">
+                <div class="price-display">
+                  <h2 class="textp1">{{ getPriceRange() }}</h2>
+                  <p class="text-muted mb-0">Indicative price</p>
+                </div>
+              </div>
+            </div> 
+            Card -->
+
+            <!-- Details Card -->
+            <div class="info-card mb-4">
+              <div class="card-header bg-primary">
+                <h4 class="mb-0 textp">Details</h4>
+              </div>
+              <div class="card-body" style="text-align: center">
+                <div class="detail-item mb-3">
+                  <h6>⏱️ Average duration</h6>
+                  <p class="mb-0">{{ getSafeAverageDuration() }}</p>
+                </div>
+                <div class="detail-item">
+                  <h6>🔄 Recovery time</h6>
+                  <p class="mb-0">{{ getSafeRecoveryTime() }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,94 @@
+<section id="hotels" class="hotels-section hotels-bg">
+  <div class="container">
+    <!-- Section Title -->
+    <div class="container" data-aos="fade-up">
+      <div class="hero-center">
+        <div class="services-btn">
+          <span class="icon"></span>
+          <p class="custom-title">Hotel Accommodation</p>
+        </div>
+
+        <p class="custom-heading">Relax in carefully selected accommodations</p>
+      </div>
+    </div>
+    <!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <!-- Swiper -->
+      <div class="swiper" #swiperContainer>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let hotel of hotels">
+            <div class="hotel-card">
+              <!-- Circle Image Overlap -->
+              <div class="hotel-circle-overlap">
+                <div class="circle-image-wrapper">
+                  <img
+                    [src]="hotel.image"
+                    [alt]="hotel.name"
+                    class="hotel-avatar"
+                  />
+                </div>
+              </div>
+
+              <div class="hotel-content">
+                <h3 class="mt-3">{{ hotel.name }}</h3>
+
+                <!-- Rating -->
+                <div class="hotel-rating-display">
+                  <div class="rating-text">{{ hotel.rating }} stars hotel</div>
+                  <div class="stars">
+                    @for (star of [1, 2, 3, 4, 5]; track star) {
+                      <i
+                        class="bi"
+                        [class.bi-star-fill]="star <= hotel.rating"
+                        [class.bi-star]="star > hotel.rating"
+                      >
+                      </i>
+                    }
+                  </div>
+                </div>
+
+                <!-- Location
+                <p class="hotel-location">
+                  <i class="bi bi-geo-alt"></i> {{ hotel.location }}
+                </p> 
+                -->
+
+                <!-- Button -->
+                <button
+                  class="btn-clinic-details"
+                  (click)="viewHotelDetails(hotel.id)"
+                >
+                  <span>Explore more</span>
+                  <img
+                    src="assets/img/clinics/pepicons-pop_arrow-up.png"
+                    class="btn-arrow"
+                    alt="arrow"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flèches de navigation du carrousel principal -->
+        <div class="swiper-button-next">
+          <img
+            src="assets/img/home/flechdroiteb.png"
+            alt="Next"
+            class="custom-arrow"
+          />
+        </div>
+        <div class="swiper-button-prev">
+          <img
+            src="assets/img/home/flechgaucheb.png"
+            alt="Prev"
+            class="custom-arrow"
+          />
+        </div>
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,167 @@
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.app-header {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.app-header h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+.app-header p {
+    margin: 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.app-main {
+    flex: 1;
+    padding: 2rem 0;
+    background: #f8f9fa;
+}
+
+.app-footer {
+    background: #343a40;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.app-footer p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .app-header h1 {
+        font-size: 2rem;
+    }
+
+    .app-header p {
+        font-size: 1rem;
+    }
+
+    .app-main {
+        padding: 1rem 0;
+    }
+}
+
+
+.order-container {
+    position: fixed;
+    bottom: 110px;
+    right: 30px;
+    z-index: 9998;
+}
+
+.order-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+        background: linear-gradient(85.49deg,
+            rgb(141, 90, 18) 3.66%,
+            #EAD279 59.79%);
+
+    border: 3px solid white;
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    /* Animation inspirée du bouton WhatsApp */
+    animation: pulseOrder 2s infinite, floatOrder 3s ease-in-out infinite;
+}
+
+.order-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(141, 90, 18, 0.5);
+}
+
+.order-icon {
+    color: white;
+    font-size: 24px;
+}
+
+.icon-image {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+/* Animation pulse pour le bouton Order (comme WhatsApp) */
+@keyframes pulseOrder {
+    0% {
+        box-shadow: 0 0 0 0 rgba(141, 90, 18, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(255, 107, 107, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
+    }
+}
+
+/* Animation float pour le bouton Order (comme WhatsApp) */
+@keyframes floatOrder {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .order-container {
+        bottom: 160px;
+        right: 20px;
+    }
+
+    .order-button {
+        width: 55px;
+        height: 55px;
+    }
+
+    .order-icon {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .order-container {
+        bottom: 160px;
+        right: 15px;
+    }
+
+    .order-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .order-icon {
+        font-size: 20px;
+    }
+}
