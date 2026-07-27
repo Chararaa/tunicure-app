@@ -265,7 +265,7 @@
     font-family: 'Asap', sans-serif;
     font-size: 15px;
     text-align: center;
-    color: #223E68;
+    color: #073840;
     font-weight: 600;
     line-height: 33px;
     letter-spacing: 0;
@@ -322,8 +322,8 @@
 .btn-explore-more {
     margin-top: auto;
     background: white;
-    color: #e74c3c;
-    border: 2px solid #e74c3c;
+    color: #073840;
+    border: 2px solid #1FDFA9;
     padding: 12px 25px;
     border-radius: 25px;
     font-weight: 600;
@@ -340,10 +340,10 @@
 }
 
 .btn-explore-more:hover {
-    background: #e74c3c;
-    color: white;
+    background: #1FDFA9;
+    color: #073840;
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
+    box-shadow: 0 8px 20px rgba(31, 223, 169, 0.3);
 }
 
 .btn-explore-more i {
@@ -364,6 +364,10 @@
     opacity: 1 !important;
     width: 12px !important;
     height: 12px !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: #1FDFA9 !important;
 }
 
 
@@ -462,7 +466,7 @@
     gap: 12px;
     padding: 4px 20px;
     border-radius: 60px;
-    background: linear-gradient(90deg, #1fa4c7, #2a8fb0);
+    background: linear-gradient(90deg, #1FDFA9, #073840);
 }
 
 .hero-center {
@@ -496,7 +500,7 @@
     font-family: 'Asap', sans-serif;
     font-size: 15px;
     text-align: center;
-    color: #223E68;
+    color: #073840;
     font-weight: 500;
     font-style: medium;
     line-height: 33px;
@@ -513,7 +517,7 @@
 
 .hotels-bg {
     background:
-        linear-gradient(#243F69B2, #243F69B2),
+        linear-gradient(#073840B2, #073840B2),
         /* overlay couleur */
         url('/assets/img/hotels/yellow-suitcase-standing-hotel-room.jpg');
 
@@ -527,12 +531,11 @@
 
 /* Button */
 .btn-clinic-details {
-    background: linear-gradient(85.49deg, #8D5A12 3.66%, #EAD279 59.79%);
+    background: linear-gradient(85.49deg, #073840 3.66%, #1FDFA9 59.79%);
     color: white;
     border: none;
     padding: 7px 28px;
     border-radius: 40px;
-    /* ⭐ bouton pill comme Figma */
     font-family: 'Asap', sans-serif;
     font-weight: 500;
     font-size: 14px;
@@ -543,13 +546,12 @@
     cursor: pointer;
     transition: all 0.3s ease;
     width: 100%;
-    /* ⭐ prend toute la largeur */
 }
 
 
 .btn-clinic-details:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(141, 90, 18, 0.35);
+    box-shadow: 0 10px 25px rgba(7, 56, 64, 0.35);
 }
 
 .btn-clinic-details i {

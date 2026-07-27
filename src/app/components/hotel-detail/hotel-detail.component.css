@@ -13,7 +13,7 @@
     border-bottom-right-radius: 20px;
 
     background:
-        linear-gradient(360deg, #223E68 0%, rgba(34, 62, 104, 0) 100%),
+        linear-gradient(360deg, #073840 0%, rgba(7, 56, 64, 0) 100%),
         url("/assets/img/hotels/yellow-suitcase-standing-hotel-room.jpg") center/cover;
 }
 
@@ -56,7 +56,7 @@
     font-family: 'Asap', sans-serif;
     font-weight: 600;
     font-size: 24px;
-    color: #223E68;
+    color: #073840;
 }
 
 .stars {
@@ -108,6 +108,7 @@
 .desc-text h3 {
     font-weight: 700;
     margin-bottom: 15px;
+    color: #073840;
 }
 
 .desc-text p {
@@ -125,7 +126,7 @@
 .figma-gallery h3 {
     font-size: 28px;
     font-weight: 700;
-    color: #223E68;
+    color: #073840;
 }
 
 .figma-gallery p {
@@ -236,7 +237,7 @@
     border-radius: 20px;
     cursor: pointer;
     transition: flex var(--transition), filter var(--transition), box-shadow var(--transition);
-    box-shadow: 0 10px 20px -5px rgba(34, 62, 104, 0.2);
+    box-shadow: 0 10px 20px -5px rgba(7, 56, 64, 0.2);
     position: relative;
 }
 
@@ -251,7 +252,7 @@
 
 .flex-item:hover {
     flex: var(--magnifier, 8);
-    box-shadow: 0 20px 30px -5px rgba(34, 62, 104, 0.4);
+    box-shadow: 0 20px 30px -5px rgba(7, 56, 64, 0.4);
 }
 
 .flex-item:hover .flex-image {

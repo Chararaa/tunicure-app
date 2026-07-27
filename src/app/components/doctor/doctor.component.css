@@ -10,7 +10,7 @@
     font-family: 'Asap';
     font-size: 32px;
     font-weight: 700;
-    color: #223E68;
+    color: #073840;
     text-align: center;
     margin-bottom: 60px;
 }
@@ -34,12 +34,12 @@
 
 .section-header h2 {
     font-size: 2.8rem;
-    color: #012970;
+    color: #073840;
     font-weight: 800;
     margin-bottom: 15px;
     position: relative;
     display: inline-block;
-    background: linear-gradient(135deg, #012970, #007bff);
+    background: linear-gradient(135deg, #073840, #1FDFA9);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -64,12 +64,12 @@
 .divider-line {
     width: 80px;
     height: 3px;
-    background: linear-gradient(90deg, #007bff, #00d4ff);
+    background: linear-gradient(90deg, #073840, #1FDFA9);
     border-radius: 2px;
 }
 
 .section-divider i {
-    color: #007bff;
+    color: #1FDFA9;
     font-size: 1.5rem;
     animation: heartbeat 2s infinite;
 }
@@ -202,7 +202,7 @@
     font-family: 'Asap';
     font-size: 18px;
     font-weight: 600;
-    color: #223E68;
+    color: #073840;
     margin-bottom: 4px;
 }
 
@@ -224,16 +224,15 @@
     font-weight: 600;
     font-size: 14px;
     color: white;
-    background: linear-gradient(85.49deg, #8D5A12 3.66%, #EAD279 59.79%);
+    background: linear-gradient(85.49deg, #073840 3.66%, #1FDFA9 59.79%);
     transition: 0.3s;
     margin-top: auto;
-    /* Pousse le bouton vers le bas */
     flex-shrink: 0;
 }
 
 .btn-doctor:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(141, 90, 18, 0.35);
+    box-shadow: 0 8px 20px rgba(7, 56, 64, 0.35);
 }
 
 
@@ -258,7 +257,7 @@
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(135deg, #007bff, #00d4ff);
+    background: linear-gradient(135deg, #073840, #1FDFA9);
     color: white;
     padding: 6px 15px;
     border-radius: 20px;
@@ -267,7 +266,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(7, 56, 64, 0.3);
     z-index: 3;
 }
 
@@ -700,7 +699,7 @@
     gap: 12px;
     padding: 4px 20px;
     border-radius: 60px;
-    background: linear-gradient(90deg, #1fa4c7, #2a8fb0);
+    background: linear-gradient(90deg, #1FDFA9, #073840);
 }
 
 .hero-center {
@@ -726,7 +725,7 @@
     font-style: semibold;
     line-height: 33px;
     letter-spacing: 0;
-    color: #223E68;
+    color: #073840;
 }
 
 .icon {
@@ -820,7 +819,7 @@ position: relative;
 }
 
 .swiper-pagination-bullet-active {
-    background: #1fa4c7;
+    background: #1FDFA9;
     width: 26px;
     border-radius: 20px;
 }

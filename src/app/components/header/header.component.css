@@ -1,7 +1,7 @@
 /* ===== VARIABLES ===== */
 :root {
-    --primary-color: #223E68;
-    --primary-dark: #223E68;
+    --primary-color: #073840;
+    --primary-dark: #073840;
     --text-color: #333;
     --text-light: #666;
     --white: #ffffff;
@@ -23,7 +23,7 @@
 
 /* ===== HEADER GÉNÉRAL ===== */
 .header .topbar {
-    background: linear-gradient(90deg, #223E68 0%, #15A5D8 100%) !important;
+    background: linear-gradient(90deg, #073840 0%, #1FDFA9 100%) !important;
     color: var(--white);
     padding: 8px 0;
 }
@@ -160,7 +160,7 @@
     white-space: nowrap;
     font-weight: 800;
     position: relative;
-    color: #223E68;
+    color: #073840;
     font-family: Cormorant SC;
 }
 
@@ -233,7 +233,7 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     animation: _ngcontent-ng-c3225240816_mobileMenuDrop 0.35s ease forwards;
     z-index: 999;
-    color: #223E68;
+    color: #073840;
     font-family: Cormorant SC;
 
 }

@@ -19,7 +19,7 @@
 }
 
 .legal-link:hover {
-    color: #15263e;
+    color: #073840;
     text-decoration: none;
 }
 
@@ -95,8 +95,8 @@
 .modal-header {
     padding: 25px 30px;
     background: linear-gradient(90deg,
-            #223E68 0%,
-            #15A5D8 100%);
+            #073840 0%,
+            #1FDFA9 100%);
     color: white;
     display: flex;
     align-items: center;
@@ -150,7 +150,7 @@
     overflow-y: auto;
     padding: 30px;
     scrollbar-width: thin;
-    scrollbar-color: #4154f1 #f0f0f0;
+    scrollbar-color: #1FDFA9 #f0f0f0;
 }
 
 .modal-scroll-content::-webkit-scrollbar {
@@ -163,7 +163,7 @@
 }
 
 .modal-scroll-content::-webkit-scrollbar-thumb {
-    background: #4154f1;
+    background: #1FDFA9;
     border-radius: 4px;
 }
 
@@ -177,18 +177,18 @@
 }
 
 .modal-section h3 {
-    color: #012970;
+    color: #073840;
     font-size: 1.3rem;
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #eef3ff;
+    border-bottom: 2px solid #d0faf0;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
 .modal-section h3 i {
-    color: #4154f1;
+    color: #1FDFA9;
 }
 
 .modal-section p {
@@ -209,7 +209,7 @@
 }
 
 .modal-section li strong {
-    color: #012970;
+    color: #073840;
 }
 
 .alert-medical {
@@ -253,14 +253,14 @@
 
 .principle-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(65, 84, 241, 0.1);
-    border-color: #4154f1;
+    box-shadow: 0 10px 25px rgba(31, 223, 169, 0.1);
+    border-color: #1FDFA9;
 }
 
 .principle-icon {
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, #4154f1, #717ff5);
+    background: linear-gradient(135deg, #1FDFA9, #073840);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -271,7 +271,7 @@
 }
 
 .principle-card h4 {
-    color: #012970;
+    color: #073840;
     margin-bottom: 15px;
     font-size: 1.1rem;
 }
@@ -288,7 +288,7 @@
 }
 
 .data-sharing-table thead {
-    background: linear-gradient(135deg, #4154f1 0%, #717ff5 100%);
+    background: linear-gradient(135deg, #1FDFA9 0%, #073840 100%);
     color: white;
 }
 
@@ -316,7 +316,7 @@
 
 .data-sharing-table td:first-child {
     font-weight: 600;
-    color: #012970;
+    color: #073840;
 }
 
 /* Security Features */
@@ -343,13 +343,13 @@
 }
 
 .security-item i {
-    color: #4154f1;
+    color: #1FDFA9;
     font-size: 1.8rem;
     min-width: 40px;
 }
 
 .security-item h4 {
-    color: #012970;
+    color: #073840;
     margin-bottom: 8px;
     font-size: 1.1rem;
 }
@@ -380,19 +380,19 @@
 }
 
 .right-item:hover {
-    border-color: #4154f1;
-    box-shadow: 0 8px 20px rgba(65, 84, 241, 0.1);
+    border-color: #1FDFA9;
+    box-shadow: 0 8px 20px rgba(31, 223, 169, 0.1);
 }
 
 .right-item i {
-    color: #4154f1;
+    color: #1FDFA9;
     font-size: 1.8rem;
     min-width: 40px;
     margin-top: 2px;
 }
 
 .right-item h4 {
-    color: #012970;
+    color: #073840;
     margin-bottom: 8px;
     font-size: 1.1rem;
 }
@@ -422,12 +422,12 @@
 }
 
 .contact-detail i {
-    color: #4154f1;
+    color: #1FDFA9;
     font-size: 2rem;
 }
 
 .contact-detail h4 {
-    color: #012970;
+    color: #073840;
     margin-bottom: 15px;
     font-size: 1.1rem;
 }
@@ -460,7 +460,7 @@
 }
 
 .commitment i {
-    color: #28a745;
+    color: #1FDFA9;
     font-size: 1.2rem;
 }
 
@@ -480,8 +480,8 @@
 
 .btn-modal-close {
     background: linear-gradient(90deg,
-            #223E68 0%,
-            #15A5D8 100%);
+            #073840 0%,
+            #1FDFA9 100%);
     color: white;
     border: none;
     padding: 15px 40px;
@@ -498,9 +498,9 @@
 }
 
 .btn-modal-close:hover {
-    background: linear-gradient(135deg, #717ff5 0%, #4154f1 100%);
+    background: linear-gradient(135deg, #1FDFA9 0%, #073840 100%);
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(65, 84, 241, 0.3);
+    box-shadow: 0 10px 25px rgba(31, 223, 169, 0.3);
 }
 
 .btn-modal-close i {
@@ -523,7 +523,7 @@
 }
 
 .contact-info i {
-    color: #4154f1;
+    color: #1FDFA9;
     min-width: 20px;
 }
 
@@ -609,7 +609,7 @@
     padding: 70px 0 30px;
     border-radius: 40px 40px 0 0;
     overflow: hidden;
-    background: #243F69;
+    background: #073840;
 
 }
 
@@ -636,7 +636,11 @@
 
 /* logo */
 .footer-logo {
-    width: 170px;
+    width: 320px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
     margin-bottom: 25px;
 }
 
@@ -671,7 +675,7 @@
 
 .footer-social i:hover {
     background: white;
-    color: #2f4b73;
+    color: #073840;
 }
 
 /* columns */
@@ -699,7 +703,7 @@
 .footer-separator {
     height: 2px;
     width: 100%;
-    background: #c6a86b;
+    background: #1FDFA9;
     margin-top: 40px;
 }
 /* Les icônes en blanc */
@@ -708,7 +712,7 @@
     transition: color 0.3s ease;
 }
 
-/* Au survol, bleu marine */
+/* Au survol, vert Cyprus */
 .footer-social a:hover i {
-    color: #003366; /* Bleu marine */
+    color: #073840;
 }

@@ -34,7 +34,7 @@
     left: 50px;
     right: 50px;
     height: 4px;
-    background: linear-gradient(90deg, #EAD279 0%, #8D5A12 100%);
+    background: linear-gradient(90deg, #1FDFA9 0%, #073840 100%);
     z-index: 1;
     border-radius: 2px;
     transform: translateY(-50%);
@@ -75,10 +75,10 @@
 }
 
 .progress-step.active .step-number {
-    background: #223E68;
+    background: #073840;
     color: white;
     transform: scale(1.1);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 5px 15px rgba(7, 56, 64, 0.4);
 }
 
 .progress-step.active .step-label {
@@ -104,7 +104,7 @@
     left: 0;
     right: 0;
     height: 25px;
-    background: linear-gradient(90deg, #223E68 0%, #15A5D8 100%);
+    background: linear-gradient(90deg, #073840 0%, #1FDFA9 100%);
 }
 
 @keyframes fadeIn {
@@ -156,7 +156,7 @@
     font-size: 32px;
     line-height: 33px;
     text-align: start;
-    color: #223E68;
+    color: #073840;
 }
 
 .subtitle {
@@ -237,13 +237,13 @@
 
 .category-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(65, 84, 241, 0.15);
-    border-color: #4154f1;
+    box-shadow: 0 15px 35px rgba(7, 56, 64, 0.15);
+    border-color: #073840;
 }
 
 .category-card.selected {
-    border-color: #667eea;
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.25);
+    border-color: #1FDFA9;
+    box-shadow: 0 10px 30px rgba(31, 223, 169, 0.25);
 }
 
 .category-image-wrapper {
@@ -321,7 +321,7 @@
 }
 
 .btn-category-select {
-    background: linear-gradient(85.49deg, #8D5A12 3.66%, #EAD279 59.79%);
+    background: linear-gradient(85.49deg, #073840 3.66%, #1FDFA9 59.79%);
     color: white;
     border: none;
     padding: 8px 18px;
@@ -362,7 +362,7 @@
     position: absolute;
     top: 12px;
     right: 12px;
-    background: #667eea;
+    background: #073840;
     color: white;
     padding: 4px 12px;
     border-radius: 30px;
@@ -596,7 +596,7 @@
     align-items: center;
     gap: 15px;
     padding: 20px 40px;
-    background: linear-gradient(90deg, #8D5A12 0%, #EAD279 100%);
+    background: linear-gradient(85.49deg, #073840 3.66%, #1FDFA9 59.79%);
     color: white;
     border-radius: 12px;
     cursor: pointer;
@@ -700,8 +700,7 @@
     justify-content: space-between;
     margin-top: 40px;
     padding-top: 30px;
-    border-top: 2px solid;
-    border-image: linear-gradient(90deg, #8D5A12 0%, #EAD279 100%) 1;
+    border-top: 2px solid #1FDFA9;
 }
 
 .btn-secondary,
@@ -732,19 +731,19 @@
 
 .btn-secondary:hover {
     background: #f8f9fa;
-    border-color: #667eea;
-    color: #667eea;
+    border-color: #073840;
+    color: #073840;
     transform: translateY(-2px);
 }
 
 .btn-next {
-    background: linear-gradient(85.49deg, #8D5A12 3.66%, #EAD279 59.79%);
+    background: linear-gradient(85.49deg, #073840 3.66%, #1FDFA9 59.79%);
     color: white;
 }
 
 .btn-next:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 25px rgba(7, 56, 64, 0.35);
 }
 
 .btn-next:disabled {
@@ -753,14 +752,14 @@
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    background: linear-gradient(85.49deg, #073840 3.66%, #1FDFA9 59.79%);
     color: white;
     padding: 16px 45px;
 }
 
 .btn-primary:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(40, 167, 69, 0.3);
+    box-shadow: 0 10px 25px rgba(7, 56, 64, 0.35);
 }
 
 .btn-primary:disabled {
@@ -1183,7 +1182,7 @@
     position: relative;
     height: 350px;
     overflow: hidden;
-    background: linear-gradient(360deg, #223E68 0%, rgba(34, 62, 104, 0) 100%),
+    background: linear-gradient(360deg, #073840 0%, rgba(7, 56, 64, 0) 100%),
         url("/assets/img/home/payment.png");
     background-size: cover;
     background-position: center;
@@ -1231,7 +1230,7 @@
     font-family: 'Asap', sans-serif;
     font-weight: 600;
     font-size: 24px;
-    color: #223E68;
+    color: #073840;
     line-height: 100%;
     text-align: center;
 }
@@ -1303,14 +1302,14 @@
 }
 
 .subcategory-circle-card.selected .circle-image {
-    border-color: #8D5A12;
-    box-shadow: 0 0 0 3px rgba(141, 90, 18, 0.2), 0 10px 25px rgba(141, 90, 18, 0.25);
+    border-color: #073840;
+    box-shadow: 0 0 0 3px rgba(31, 223, 169, 0.3), 0 10px 25px rgba(7, 56, 64, 0.25);
     transform: scale(1.02);
 }
 
 .subcategory-circle-card h5 {
     font-size: 1rem;
-    color: #223E68;
+    color: #073840;
     margin: 10px 0 0;
     font-weight: 600;
     max-width: 150px;
@@ -1323,7 +1322,7 @@
     right: 15px;
     width: 30px;
     height: 30px;
-    background: linear-gradient(85.49deg, #8D5A12 3.66%, #EAD279 59.79%);
+    background: linear-gradient(85.49deg, #073840 3.66%, #1FDFA9 59.79%);
     color: white;
     border-radius: 50%;
     display: flex;
@@ -1382,7 +1381,7 @@
 }
 
 .subcategories-swiper .swiper-pagination-bullet-active {
-    background: linear-gradient(85.49deg, #8D5A12 3.66%, #EAD279 59.79%);
+    background: #1FDFA9;
     width: 25px;
     border-radius: 5px;
 }
@@ -1419,7 +1418,7 @@
 
 .procedure-details-header h3 {
     font-size: 24px;
-    color: #223E68;
+    color: #073840;
     margin: 0 0 15px 0;
     font-weight: 700;
 }
@@ -1456,7 +1455,7 @@
 .metric-icon {
     width: 48px;
     height: 48px;
-    background: linear-gradient(135deg, #223E68 0%, #15A5D8 100%);
+    background: linear-gradient(135deg, #073840 0%, #1FDFA9 100%);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -1482,7 +1481,7 @@
 .metric-value {
     font-size: 18px;
     font-weight: 700;
-    color: #223E68;
+    color: #073840;
 }
 
 .metric-value.price {
@@ -1634,12 +1633,12 @@
     height: 44px !important;
     border-radius: 50% !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
-    color: #223E68 !important;
+    color: #073840 !important;
 }
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-    background: linear-gradient(85.49deg, #8D5A12 3.66%, #EAD279 59.79%) !important;
+    background: linear-gradient(85.49deg, #073840 3.66%, #1FDFA9 59.79%) !important;
     color: white !important;
 }
 
@@ -1651,7 +1650,7 @@
 }
 
 .swiper-pagination-bullet-active {
-    background: linear-gradient(85.49deg, #8D5A12 3.66%, #EAD279 59.79%) !important;
+    background: #1FDFA9 !important;
     width: 25px !important;
     border-radius: 5px !important;
 }

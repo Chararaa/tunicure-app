@@ -19,7 +19,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(180deg, rgba(64, 115, 191, 0) 0%, #223E68 100%);
+    background: linear-gradient(180deg, rgba(7, 56, 64, 0) 0%, #073840 100%);
     display: flex;
     align-items: center;
 }
@@ -48,8 +48,8 @@
 
 .bg-primary {
     background: linear-gradient(90deg,
-            #223E68 0%,
-            #15A5D8 100%);
+            #073840 0%,
+            #1FDFA9 100%);
 }
 
 .textp {
@@ -65,7 +65,7 @@
     font-family: 'Asap', sans-serif;
     font-weight: 700;
     font-size: 24px;
-    color: #223E68;
+    color: #073840;
     line-height: 100%;
     text-align: center;
 }
@@ -78,9 +78,9 @@
     leading-trim: NONE;
     line-height: 32px;
     letter-spacing: 0%;
-    color: #223E68;
+    color: #073840;
     border-bottom: 3px solid transparent;
-    border-image: linear-gradient(90deg, #223E68 0%, #15A5D8 100%);
+    border-image: linear-gradient(90deg, #073840 0%, #1FDFA9 100%);
     border-image-slice: 1;
     width: 20%;
 }
@@ -93,9 +93,9 @@
 }
 
 .description-section h2 {
-    color: #012970;
+    color: #073840;
     border-bottom: 3px solid transparent;
-    border-image: linear-gradient(90deg, #223E68 0%, #15A5D8 100%);
+    border-image: linear-gradient(90deg, #073840 0%, #1FDFA9 100%);
     border-image-slice: 1;
     padding-bottom: 10px;
     display: inline-block;
@@ -109,10 +109,10 @@
 }
 
 .benefit-card {
-    background: #f8f9ff;
+    background: #d0faf0;
     padding: 20px;
     border-radius: 10px;
-    border-left: 4px solid #4154f1;
+    border-left: 4px solid #1FDFA9;
     height: 100%;
     transition: transform 0.3s ease;
 }
@@ -122,7 +122,7 @@
 }
 
 .benefit-card h5 {
-    color: #012970;
+    color: #073840;
     font-size: 1.1rem;
     margin-bottom: 10px;
     font-weight: 600;
@@ -141,21 +141,21 @@
 }
 
 .faq-section h2 {
-    color: #012970;
-    border-bottom: 3px solid #4154f1;
+    color: #073840;
+    border-bottom: 3px solid #1FDFA9;
     padding-bottom: 10px;
     display: inline-block;
 }
 
 .accordion-button {
     font-weight: 600;
-    color: #012970;
-    background-color: #f8f9ff;
+    color: #073840;
+    background-color: #d0faf0;
 }
 
 .accordion-button:not(.collapsed) {
-    color: #4154f1;
-    background-color: #eef3ff;
+    color: #1FDFA9;
+    background-color: #d0faf0;
 }
 
 .accordion-body {
@@ -202,7 +202,7 @@
 }
 
 .detail-item h6 {
-    color: #012970;
+    color: #073840;
     font-weight: 600;
     margin-bottom: 5px;
     font-size: 0.9rem;
@@ -256,10 +256,10 @@
 }
 
 .card-header {
-    background: linear-gradient(135deg, #223E68 0%, #2b4b7a 100%);
+    background: linear-gradient(135deg, #073840 0%, #0a5060 100%);
     padding: 20px 30px;
     position: relative;
-    border-bottom: 4px solid #1fa4c7;
+    border-bottom: 4px solid #1FDFA9;
 }
 
 .card-header::after {
@@ -269,7 +269,7 @@
     left: 0;
     width: 100px;
     height: 4px;
-    background: #1fa4c7;
+    background: #1FDFA9;
 }
 
 .card-title {
@@ -291,7 +291,7 @@
     transform: translateY(-50%);
     width: 5px;
     height: 25px;
-    background: #1fa4c7;
+    background: #1FDFA9;
     border-radius: 3px;
 }
 
@@ -302,16 +302,16 @@
 
 /* Cartes alternées */
 .alternate-card .card-header {
-    background: linear-gradient(135deg, #1fa4c7 0%, #2a8fb0 100%);
-    border-bottom-color: #223E68;
+    background: linear-gradient(135deg, #1FDFA9 0%, #073840 100%);
+    border-bottom-color: #073840;
 }
 
 .alternate-card .card-header::after {
-    background: #223E68;
+    background: #073840;
 }
 
 .alternate-card .card-title::before {
-    background: #223E68;
+    background: #073840;
 }
 
 /* Paragraphes */
@@ -345,7 +345,7 @@
 
 .card-list li:before {
     content: "✓";
-    color: #1fa4c7;
+    color: #1FDFA9;
     font-weight: bold;
     position: absolute;
     left: 8px;
@@ -354,7 +354,7 @@
 }
 
 .alternate-card .card-list li:before {
-    color: #223E68;
+    color: #073840;
 }
 
 /* Footer de carte */
@@ -369,17 +369,17 @@
     align-items: center;
     gap: 8px;
     background: white;
-    color: #223E68;
+    color: #073840;
     padding: 6px 16px;
     border-radius: 30px;
     font-size: 0.85rem;
     font-weight: 500;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(31, 164, 199, 0.2);
+    border: 1px solid rgba(31, 223, 169, 0.2);
 }
 
 .card-badge i {
-    color: #1fa4c7;
+    color: #1FDFA9;
 }
 
 /* Animation */

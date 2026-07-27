@@ -13,7 +13,7 @@
     border-bottom-right-radius: 20px;
 
     background:
-        linear-gradient(360deg, #223E68 0%, rgba(34, 62, 104, 0) 100%),
+        linear-gradient(360deg, #073840 0%, rgba(7, 56, 64, 0) 100%),
         url("/assets/img/clinics/banner.jpg") center/cover;
 }
 
@@ -56,7 +56,7 @@
     font-family: 'Asap', sans-serif;
     font-weight: 600;
     font-size: 24px;
-    color: #223E68;
+    color: #073840;
 }
 
 /* RATING */
@@ -86,7 +86,7 @@
 }
 
 .clinic-location i {
-    color: #007bff;
+    color: #1FDFA9;
 }
 
 /* DESCRIPTION */
@@ -129,7 +129,7 @@
 .desc-text h3 {
     font-size: 24px;
     font-weight: 700;
-    color: #223E68;
+    color: #073840;
     margin-bottom: 20px;
 }
 
@@ -148,7 +148,7 @@
 .figma-gallery h3 {
     font-size: 28px;
     font-weight: 700;
-    color: #223E68;
+    color: #073840;
 }
 
 .figma-gallery p {
