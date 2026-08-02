@@ -14,7 +14,7 @@
   bottom: 0;
   display: flex;
   align-items: center;
-  background: linear-gradient(180deg, rgba(64, 115, 191, 0) 0%, #223E68 100%);
+  background: linear-gradient(180deg, rgba(7, 56, 64, 0) 0%, #073840 100%);
 
 }
 
@@ -36,7 +36,7 @@
   gap: 12px;
   padding: 4px 20px;
   border-radius: 60px;
-  background: linear-gradient(90deg, #1fa4c7, #2a8fb0);
+  background: linear-gradient(90deg, #1FDFA9, #073840);
 }
 
 .hero-center {
@@ -96,14 +96,14 @@
 
 .subcategory-circle h5 {
   font-size: 1rem;
-  color: #012970;
+  color: #073840;
   margin-top: 10px;
   font-weight: 600;
 }
 
 .description-section .description-content {
   line-height: 1.8;
-  background: #223E6814;
+  background: rgba(7, 56, 64, 0.08);
 }
 
 .info-card {
@@ -114,7 +114,7 @@
 }
 
 .info-card h4 {
-  color: #012970;
+  color: #073840;
   margin-bottom: 20px;
   font-weight: 600;
 }
@@ -131,7 +131,7 @@
 }
 
 .info-item i {
-  color: #4154f1;
+  color: #1FDFA9;
   width: 20px;
 }
 
@@ -161,7 +161,7 @@
   width: 50px;
   height: 50px;
   border: 3px solid #e2e8f0;
-  border-top: 3px solid #8b5cf6;
+  border-top: 3px solid #1FDFA9;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin: 0 auto 15px;
@@ -308,7 +308,7 @@
   line-height: 32px;
   letter-spacing: 0%;
   text-align: center;
-  color: #223E68;
+  color: #073840;
 }
 
 .section-subtitle {
@@ -320,7 +320,7 @@
   line-height: 32px;
   letter-spacing: 0%;
   text-align: start;
-  color: #223E68;
+  color: #073840;
 }
 
 /* Subcategories section */
@@ -407,7 +407,7 @@
 }
 
 .subcategory-meta i {
-  color: #8b5cf6;
+  color: #1FDFA9;
 }
 
 .price-range {
@@ -426,7 +426,7 @@
 .price-amount {
   font-size: 18px;
   font-weight: 700;
-  color: #8b5cf6;
+  color: #1FDFA9;
 }
 
 .empty-subcategories {
@@ -519,7 +519,7 @@
 .stat-icon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  background: linear-gradient(135deg, #073840, #1FDFA9);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -623,13 +623,13 @@
 }
 
 .video-note i {
-  color: #8b5cf6;
+  color: #1FDFA9;
 }
 
 /* CTA section */
 .cta-section {
   padding: 60px 0;
-  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  background: linear-gradient(135deg, #073840, #1FDFA9);
   color: white;
   text-align: center;
 }
@@ -670,7 +670,7 @@
 
 .btn-primary {
   background: white;
-  color: #7c3aed;
+  color: #073840;
 }
 
 .btn-primary:hover {
@@ -852,22 +852,22 @@
   background: white;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(34, 62, 104, 0.08);
+  box-shadow: 0 10px 40px rgba(7, 56, 64, 0.08);
   transition: all 0.3s ease;
-  border: 1px solid rgba(34, 62, 104, 0.1);
+  border: 1px solid rgba(7, 56, 64, 0.1);
   position: relative;
 }
 
 .description-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 50px rgba(34, 62, 104, 0.15);
+  box-shadow: 0 20px 50px rgba(7, 56, 64, 0.15);
 }
 
 .card-header {
-  background: linear-gradient(135deg, #223E68 0%, #2b4b7a 100%);
+  background: linear-gradient(135deg, #073840 0%, #0a5060 100%);
   padding: 20px 30px;
   position: relative;
-  border-bottom: 4px solid #1fa4c7;
+  border-bottom: 4px solid #1FDFA9;
 }
 
 .card-header::after {
@@ -877,7 +877,7 @@
   left: 0;
   width: 100px;
   height: 4px;
-  background: #1fa4c7;
+  background: #1FDFA9;
 }
 
 .card-title {
@@ -899,7 +899,7 @@
   transform: translateY(-50%);
   width: 5px;
   height: 25px;
-  background: #1fa4c7;
+  background: #1FDFA9;
   border-radius: 3px;
 }
 
@@ -910,16 +910,16 @@
 
 /* Cartes alternées */
 .alternate-card .card-header {
-  background: linear-gradient(135deg, #1fa4c7 0%, #2a8fb0 100%);
-  border-bottom-color: #223E68;
+  background: linear-gradient(135deg, #1FDFA9 0%, #073840 100%);
+  border-bottom-color: #073840;
 }
 
 .alternate-card .card-header::after {
-  background: #223E68;
+  background: #073840;
 }
 
 .alternate-card .card-title::before {
-  background: #223E68;
+  background: #073840;
 }
 
 /* Paragraphes */
@@ -953,7 +953,7 @@
 
 .card-list li:before {
   content: "✓";
-  color: #1fa4c7;
+  color: #1FDFA9;
   font-weight: bold;
   position: absolute;
   left: 8px;
@@ -962,14 +962,14 @@
 }
 
 .alternate-card .card-list li:before {
-  color: #223E68;
+  color: #073840;
 }
 
 /* Footer de carte */
 .card-footer {
   padding: 15px 30px;
-  background: rgba(31, 164, 199, 0.03);
-  border-top: 1px dashed rgba(34, 62, 104, 0.2);
+  background: rgba(31, 223, 169, 0.03);
+  border-top: 1px dashed rgba(7, 56, 64, 0.2);
 }
 
 .card-badge {
@@ -977,17 +977,17 @@
   align-items: center;
   gap: 8px;
   background: white;
-  color: #223E68;
+  color: #073840;
   padding: 6px 16px;
   border-radius: 30px;
   font-size: 0.85rem;
   font-weight: 500;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(31, 164, 199, 0.2);
+  border: 1px solid rgba(31, 223, 169, 0.2);
 }
 
 .card-badge i {
-  color: #1fa4c7;
+  color: #1FDFA9;
 }
 
 /* Animation */
