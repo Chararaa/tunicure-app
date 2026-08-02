@@ -278,9 +278,9 @@
     align-items: center;
     justify-content: center;
     background: linear-gradient(to top,
-            rgba(0, 0, 0, 0.8) 0%,
-            rgba(0, 0, 0, 0.4) 50%,
-            rgba(0, 0, 0, 0.2) 100%);
+            #073840 0%,
+            rgba(7, 56, 64, 0.75) 50%,
+            rgba(7, 56, 64, 0.3) 100%);
     border-radius: 16px;
     padding: 15px;
 }

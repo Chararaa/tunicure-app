@@ -19,7 +19,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(180deg, rgba(7, 56, 64, 0) 0%, #073840 100%);
+    background: linear-gradient(180deg, rgba(7, 56, 64, 0.6) 0%, #073840 100%);
     display: flex;
     align-items: center;
 }
